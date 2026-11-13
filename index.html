@@ -3,92 +3,127 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>捏盘寿司吃吃🍣</title>
+<title>捏盘寿司吃吃🍣 for Jenny</title>
 <style>
 :root{
-  --wood:#c4a574;--wood-dark:#8b6914;--wood-light:#e8d5b5;
-  --mat:#2a4a7a;--mat-dark:#1a3258;--cream:#faf6f0;--ink:#3d2b1f;
-  --accent:#c45c48;--rice:#f5f0e6;--nori:#1a3a28;
-  --success:#4a9b6e;--warn:#d4a017;--bad:#c45c48;
+  --wood:#e0b87a;--wood-dark:#b07a38;--wood-light:#f8e7c8;
+  --mat:#3d6cb0;--mat-dark:#2a4e88;--cream:#fff8ef;--ink:#4a3224;
+  --accent:#ff6b57;--rice:#fffaf2;--nori:#1a3a28;
+  --success:#3db87a;--warn:#f0b429;--bad:#ff8a6a;
+  --blush:#ffd6de;--sky:#7ec8f0;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;background:linear-gradient(160deg,#2a1f14 0%,#4a3728 40%,#3d2b1f 100%);color:var(--ink);touch-action:none;user-select:none}
-#app{max-width:480px;margin:0 auto;height:100%;height:100dvh;display:flex;flex-direction:column;position:relative;background:linear-gradient(180deg,#f0e6d8 0%,#e8dcc8 50%,#d4c4a8 100%);box-shadow:0 0 40px rgba(0,0,0,.4)}
+html,body{height:100%;overflow:hidden;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;background:linear-gradient(160deg,#3b2618 0%,#6a4530 40%,#4a3224 100%);color:var(--ink);touch-action:none;user-select:none}
+#app{max-width:480px;margin:0 auto;height:100%;height:100dvh;display:flex;flex-direction:column;position:relative;background:linear-gradient(180deg,#fff4e8 0%,#f7e4cc 55%,#efd2b0 100%);box-shadow:0 0 40px rgba(0,0,0,.4)}
 .screen{display:none;flex:1;flex-direction:column;min-height:0;position:relative}
 .screen.active{display:flex}
-#screen-start{align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.35),transparent 60%),linear-gradient(180deg,#f5ebe0 0%,#e0d0b8 100%);text-align:center;padding:24px;gap:12px}
-.logo-sushi{font-size:72px;line-height:1;animation:bob 2.4s ease-in-out infinite;filter:drop-shadow(0 8px 12px rgba(0,0,0,.15))}
+#screen-start{align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 28%,rgba(255,255,255,.55),transparent 62%),linear-gradient(180deg,#fff6ec 0%,#f3d9be 100%);text-align:center;padding:20px 24px 8px;gap:10px}
+.logo-row{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:86px}
+.logo-cat{font-size:48px;line-height:1;animation:bob 2.2s ease-in-out infinite;filter:drop-shadow(0 6px 8px rgba(0,0,0,.12));transform-origin:bottom center}
+.logo-sushi{font-size:72px;line-height:1;animation:bob 2.4s ease-in-out .2s infinite;filter:drop-shadow(0 8px 12px rgba(0,0,0,.15))}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .title-main{font-size:28px;font-weight:800;letter-spacing:.06em}
-.title-sub{font-size:13px;color:#7a6550;margin-bottom:8px}
-.btn{border:none;border-radius:999px;padding:14px 36px;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s cubic-bezier(.2,.8,.2,1),box-shadow .12s,background .15s,filter .15s;box-shadow:0 4px 0 rgba(0,0,0,.15)}
-.btn:active{transform:translateY(3px) scale(.97);box-shadow:0 1px 0 rgba(0,0,0,.15)}
-.btn-primary{background:linear-gradient(180deg,#e07058,#c45c48);color:#fff;min-width:180px}
+.title-for{display:inline-block;background:linear-gradient(180deg,#ffd0e0,#ffb6c8);color:#8a3050;font-size:13px;font-weight:800;padding:4px 14px;border-radius:999px;letter-spacing:.04em;box-shadow:0 2px 0 rgba(180,80,110,.2)}
+.title-sub{font-size:13px;color:#8a6a52;margin-bottom:6px}
+.btn{border:none;border-radius:999px;padding:16px 36px;font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px;transition:transform .12s cubic-bezier(.2,.8,.2,1),box-shadow .12s,background .15s,filter .15s;box-shadow:0 5px 0 rgba(0,0,0,.14)}
+.btn:active{transform:translateY(3px) scale(.97);box-shadow:0 1px 0 rgba(0,0,0,.14)}
+.btn-primary{background:linear-gradient(180deg,#ff8a72,#ff5e4a);color:#fff;min-width:200px}
 .btn-primary:hover{filter:brightness(1.05)}
-.btn-secondary{background:linear-gradient(180deg,#f5efe6,#e8dcc8);color:var(--ink);border:2px solid #c4a574}
-.btn-ghost{background:transparent;color:#7a6550;box-shadow:none;font-size:14px;padding:8px 16px}
-.btn-wet{background:linear-gradient(180deg,#6eb8e8,#4a90c8);color:#fff}
-.btn-wet.active{background:linear-gradient(180deg,#4a9b6e,#3a7a56)}
-.btn-action{background:linear-gradient(180deg,#e8c070,#d4a017);color:#fff}
-.collected-hint{font-size:12px;color:#9a8068;margin-top:16px}
-.hud{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(255,255,255,.55);backdrop-filter:blur(8px);border-bottom:1px solid rgba(139,105,20,.15);flex-shrink:0;z-index:20}
-.hud-left{display:flex;flex-direction:column;gap:2px}
+.btn-secondary{background:linear-gradient(180deg,#fff8f0,#f3e2cc);color:var(--ink);border:2px solid #e0b87a}
+.btn-ghost{background:transparent;color:#8a6a52;box-shadow:none;font-size:14px;padding:8px 16px;min-height:40px}
+.btn-wet{background:linear-gradient(180deg,#7ec8f0,#4aa8e0);color:#fff;min-width:180px;font-size:20px;min-height:56px;padding:18px 40px}
+.btn-wet.active{background:linear-gradient(180deg,#5eca8e,#3da86c)}
+.btn-action{background:linear-gradient(180deg,#ffd56a,#f0b429);color:#5a3a10;min-width:170px}
+.btn-lg{font-size:20px;min-height:56px;padding:18px 40px;min-width:200px}
+.collected-hint{font-size:12px;color:#9a8068;margin-top:8px}
+.start-mute{margin-top:2px}
+.hud{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(176,122,56,.15);flex-shrink:0;z-index:20;gap:8px}
+.hud-left{display:flex;flex-direction:column;gap:2px;min-width:0}
 .hud-piece{font-size:12px;font-weight:700;color:var(--accent)}
 .hud-topping{font-size:16px;font-weight:800}
-.hud-step{font-size:12px;color:#7a6550;background:rgba(255,255,255,.7);padding:4px 10px;border-radius:999px}
-.hud-done{font-size:12px;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:6px 12px;cursor:pointer;font-family:inherit}
+.hud-step{font-size:12px;color:#7a6550;background:rgba(255,255,255,.85);padding:5px 12px;border-radius:999px;flex-shrink:0}
+.hud-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.hud-mute{width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.9);font-size:20px;cursor:pointer;font-family:inherit;box-shadow:0 2px 0 rgba(0,0,0,.08);line-height:1}
+.hud-mute:active{transform:translateY(1px)}
+.hud-done{font-size:13px;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:10px 14px;cursor:pointer;font-family:inherit;min-height:44px}
 .stage{flex:1;min-height:0;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.stage-hint{text-align:center;padding:6px 16px 2px;font-size:13px;color:#6a5540;flex-shrink:0}
-.stage-tip{text-align:center;padding:0 18px 6px;font-size:11px;color:#8a7358;flex-shrink:0;line-height:1.35;min-height:1.35em}
-.stage-canvas-wrap{flex:1;min-height:0;position:relative;margin:0 12px 8px;border-radius:16px;overflow:hidden;box-shadow:inset 0 2px 8px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.1)}
+.helper-row{display:flex;align-items:center;gap:8px;padding:6px 12px 2px;flex-shrink:0}
+.helper-icon{font-size:28px;line-height:1;flex-shrink:0;animation:mascotBob 2s ease-in-out infinite;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08))}
+.helper-icon.point{animation:mascotPoint .7s ease-in-out infinite}
+.helper-icon.celebrate{animation:mascotCelebrate .55s ease-out}
+@keyframes mascotBob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+@keyframes mascotPoint{0%,100%{transform:translateY(0) rotate(-12deg) scale(1)}50%{transform:translateY(-3px) rotate(10deg) scale(1.08)}}
+@keyframes mascotCelebrate{0%{transform:scale(1) rotate(0) translateY(0)}30%{transform:scale(1.25) rotate(-12deg) translateY(-8px)}60%{transform:scale(1.15) rotate(12deg) translateY(-4px)}100%{transform:scale(1) rotate(0) translateY(0)}}
+.helper-bubble{flex:1;background:#fff;border-radius:16px 16px 16px 6px;padding:8px 12px;font-size:14px;font-weight:700;color:#4a3224;box-shadow:0 2px 0 rgba(176,122,56,.12);line-height:1.35;min-height:36px;display:flex;align-items:center}
+.stage-tip{text-align:center;padding:0 16px 4px;font-size:11px;color:#9a7d62;flex-shrink:0;line-height:1.35;min-height:1.35em}
+.stage-canvas-wrap{flex:1;min-height:0;position:relative;margin:0 12px 6px;border-radius:20px;overflow:hidden;box-shadow:inset 0 2px 8px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.1)}
 canvas#game{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
 canvas#game.grabbing{cursor:grabbing}
-.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:8px 12px 16px;flex-shrink:0}
+.controls{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:8px 12px 10px;flex-shrink:0}
 .float-fb{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:22px;font-weight:800;pointer-events:none;z-index:50;text-shadow:0 2px 10px rgba(255,255,255,.95),0 1px 2px rgba(0,0,0,.12);animation:floatUp 1.35s cubic-bezier(.2,.7,.2,1) forwards;white-space:nowrap}
-.float-fb.good{color:var(--success)}.float-fb.ok{color:var(--warn)}.float-fb.bad{color:var(--bad)}
+.float-fb.good{color:var(--success)}.float-fb.ok{color:#e09030}.float-fb.bad{color:#e07050}
 @keyframes floatUp{0%{opacity:0;transform:translate(-50%,-30%) scale(.72);filter:blur(2px)}12%{opacity:1;transform:translate(-50%,-48%) scale(1.12);filter:blur(0)}30%{transform:translate(-50%,-55%) scale(1)}100%{opacity:0;transform:translate(-50%,-105%) scale(.96)}}
-#screen-pick{background:linear-gradient(180deg,#f5ebe0,#e8dcc8)}
+#screen-pick{background:linear-gradient(180deg,#fff6ec,#f3e0ca)}
 .pick-header{padding:16px 16px 8px;text-align:center}
 .pick-header h2{font-size:20px;margin-bottom:4px}
-.pick-header p{font-size:12px;color:#7a6550}
-.topping-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px 16px 24px;overflow-y:auto;flex:1}
-.topping-card{background:#fff;border-radius:14px;padding:12px 8px;text-align:center;cursor:pointer;border:2px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:transform .12s,border-color .12s,box-shadow .12s}
+.pick-header p{font-size:12px;color:#8a6a52}
+.topping-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px 16px 16px;overflow-y:auto;flex:1}
+.topping-card{background:#fff;border-radius:18px;padding:14px 8px;text-align:center;cursor:pointer;border:2px solid transparent;box-shadow:0 3px 0 rgba(176,122,56,.12);transition:transform .12s,border-color .12s,box-shadow .12s}
 .topping-card:active{transform:scale(.96)}
-.topping-card:hover{border-color:var(--wood);box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.topping-card .emoji{font-size:36px;line-height:1.2}
+.topping-card:hover{border-color:#f0b429;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.topping-card .emoji{font-size:38px;line-height:1.2}
 .topping-card .name{font-size:13px;font-weight:700;margin-top:4px}
-.topping-card .tag{font-size:10px;color:#fff;background:var(--nori);border-radius:999px;padding:2px 6px;margin-top:4px;display:inline-block}
-.board-bar{display:flex;gap:6px;padding:6px 12px;overflow-x:auto;flex-shrink:0;background:rgba(139,105,20,.12)}
-.board-piece{flex-shrink:0;width:52px;height:40px;border-radius:8px;background:linear-gradient(180deg,#d4b896,#b8956a);display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 2px 4px rgba(0,0,0,.15);border:1px solid rgba(0,0,0,.08)}
-.board-piece.empty{opacity:.4;font-size:14px;color:#8b6914}
-#screen-result{align-items:center;justify-content:flex-start;padding:24px 20px;overflow-y:auto;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.4),transparent 50%),linear-gradient(180deg,#f5ebe0,#e0d0b8);text-align:center;gap:10px}
+.topping-card .tag{font-size:10px;color:#fff;background:#3db87a;border-radius:999px;padding:2px 8px;margin-top:4px;display:inline-block}
+.board-bar{display:flex;gap:6px;padding:6px 12px;overflow-x:auto;flex-shrink:0;background:rgba(176,122,56,.12)}
+.board-piece{flex-shrink:0;width:52px;height:40px;border-radius:10px;background:linear-gradient(180deg,#f0d0a0,#d4a86a);display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 2px 4px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06)}
+.board-piece.empty{opacity:.4;font-size:14px;color:#b07a38}
+#screen-result{align-items:center;justify-content:flex-start;padding:20px 20px 12px;overflow-y:auto;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.5),transparent 50%),linear-gradient(180deg,#fff6ec,#f3d9be);text-align:center;gap:8px}
 .score-big{font-size:64px;font-weight:900;color:var(--accent);line-height:1}
-.score-label{font-size:14px;color:#7a6550}
-.quirk-title{font-size:20px;font-weight:800;color:var(--ink);background:rgba(255,255,255,.7);padding:12px 20px;border-radius:16px;margin:8px 0;max-width:100%}
-.score-breakdown{width:100%;text-align:left;background:rgba(255,255,255,.6);border-radius:14px;padding:12px 16px;font-size:13px}
+.score-label{font-size:14px;color:#8a6a52}
+.result-cheer{font-size:15px;font-weight:700;color:#3db87a}
+.quirk-title{font-size:20px;font-weight:800;color:var(--ink);background:rgba(255,255,255,.75);padding:12px 20px;border-radius:16px;margin:4px 0;max-width:100%}
+.score-breakdown{width:100%;text-align:left;background:rgba(255,255,255,.65);border-radius:14px;padding:12px 16px;font-size:13px}
 .score-breakdown .row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(0,0,0,.08)}
 .score-breakdown .row:last-child{border-bottom:none}
+.sticker-wall{width:100%;background:rgba(255,255,255,.65);border-radius:14px;padding:12px 12px 14px;text-align:center}
+.sticker-wall h3{font-size:14px;margin-bottom:8px}
+.sticker-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.sticker-chip{background:linear-gradient(180deg,#fff,#fff3e0);border-radius:14px;padding:8px 12px;font-size:13px;font-weight:700;box-shadow:0 2px 0 rgba(176,122,56,.15);border:1px solid #f0d0a0}
+.sticker-chip.alltime{opacity:.85;font-weight:600;font-size:12px;background:#fff}
+.sticker-empty{font-size:12px;color:#9a8068}
 .titles-collected{width:100%;text-align:left;font-size:12px;color:#6a5540}
-.titles-collected .chip{display:inline-block;background:#fff;border-radius:999px;padding:4px 10px;margin:3px;border:1px solid var(--wood)}
+.titles-collected .chip{display:inline-block;background:#fff;border-radius:999px;padding:4px 10px;margin:3px;border:1px solid #e0b87a}
 .titles-collected .chip.new{background:#fff3cd;border-color:var(--warn);font-weight:700}
-.toast{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(61,43,31,.9);color:#fff;padding:10px 18px;border-radius:12px;font-size:13px;z-index:60;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90%;text-align:center}
+.toast{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);background:rgba(61,43,31,.9);color:#fff;padding:10px 18px;border-radius:12px;font-size:13px;z-index:60;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90%;text-align:center}
 .toast.show{opacity:1}
+.game-footer{flex-shrink:0;text-align:center;font-size:11px;color:#a08068;padding:6px 12px 8px;letter-spacing:.02em;line-height:1.3;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(255,244,232,.65))}
+.sticker-pop{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:80;pointer-events:none;background:rgba(255,248,240,.35)}
+.sticker-pop.show{display:flex}
+.sticker-pop .card{background:#fff;border-radius:22px;padding:16px 22px;font-size:20px;font-weight:800;box-shadow:0 10px 32px rgba(0,0,0,.16);animation:stickerIn .5s cubic-bezier(.2,1.2,.3,1)}
+
+.diy-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;width:100%;margin:0 0 4px}
+.btn-diy{min-height:40px;padding:8px 14px;font-size:13px;min-width:auto;box-shadow:0 2px 0 rgba(0,0,0,.1);background:linear-gradient(180deg,#fff8f0,#f3e2cc);color:var(--ink);border:2px solid #e0b87a}
+.btn-diy.on{background:linear-gradient(180deg,#ffe08a,#f0b429);border-color:#e0a020;font-weight:800}
+.sticker-pop .sub{font-size:13px;font-weight:700;color:#8a6a52;background:rgba(255,255,255,.9);padding:4px 12px;border-radius:999px}
+@keyframes stickerIn{0%{transform:scale(.4) rotate(-8deg);opacity:0}60%{transform:scale(1.12) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0)}}
 </style>
 </head>
 <body>
 <div id="app">
   <div id="screen-start" class="screen active">
-    <div class="logo-sushi">🍣</div>
+    <div class="logo-row"><span class="logo-cat">🐱</span><span class="logo-sushi">🍣</span></div>
     <div class="title-main">捏盘寿司吃吃</div>
-    <div class="title-sub">放松一下，亲手捏一盘握寿司</div>
-    <button class="btn btn-primary" id="btn-start">开始</button>
+    <div class="title-for">for Jenny</div>
+    <div class="title-sub">一起来捏寿司吧，轻轻切、慢慢捏～</div>
+    <button class="btn btn-primary btn-lg" id="btn-start">开始</button>
     <button class="btn btn-ghost" id="btn-howto">怎么玩？</button>
+    <button class="btn btn-ghost start-mute" id="btn-mute-start">🔊 声音开</button>
     <div class="collected-hint" id="collected-count">已收集称号 0 / ?</div>
   </div>
   <div id="screen-pick" class="screen">
     <div class="pick-header">
-      <h2>选一个食材</h2>
-      <p>军舰卷会标注「军舰」· 捏满 3 贯可结束（也可提前收工）</p>
+      <h2>选一个喜欢的食材吧</h2>
+      <p>有「军舰」标记的会包海苔 · 捏满 3 贯可以收工</p>
     </div>
     <div class="topping-grid" id="topping-grid"></div>
   </div>
@@ -99,11 +134,17 @@ canvas#game.grabbing{cursor:grabbing}
         <span class="hud-topping" id="hud-topping">金枪鱼</span>
       </div>
       <span class="hud-step" id="hud-step">切鱼</span>
-      <button class="hud-done" id="btn-finish-early">收工评分</button>
+      <div class="hud-right">
+        <button class="hud-mute" id="btn-mute" type="button" aria-label="开关声音">🔊</button>
+        <button class="hud-done" id="btn-finish-early">收工评分</button>
+      </div>
     </div>
     <div class="board-bar" id="board-bar"></div>
     <div class="stage">
-      <div class="stage-hint" id="stage-hint">向下滑动切鱼片</div>
+      <div class="helper-row">
+        <div class="helper-icon" id="mascot">🐱</div>
+        <div class="helper-bubble" id="helper-speech">向下滑，看刀把鱼切开～</div>
+      </div>
       <div class="stage-tip" id="stage-tip"></div>
       <div class="stage-canvas-wrap">
         <canvas id="game"></canvas>
@@ -114,57 +155,83 @@ canvas#game.grabbing{cursor:grabbing}
   <div id="screen-result" class="screen">
     <div class="score-label">本盘综合评分</div>
     <div class="score-big" id="score-big">0</div>
+    <div class="result-cheer" id="result-cheer">太棒了！</div>
     <div class="quirk-title" id="quirk-title">没有特别的怪癖放到最满</div>
+    <div class="sticker-wall" id="sticker-wall"></div>
     <div class="score-breakdown" id="score-breakdown"></div>
     <div class="titles-collected" id="titles-box"></div>
-    <button class="btn btn-primary" id="btn-again" style="margin-top:12px">再捏一盘</button>
+    <button class="btn btn-primary btn-lg" id="btn-again" style="margin-top:10px">再捏一盘</button>
     <button class="btn btn-secondary" id="btn-home">回首页</button>
   </div>
+  <div class="game-footer" id="game-footer">for Jenny  ·  更新于 2026-11-13 23:16（香港时间）</div>
   <div class="toast" id="toast"></div>
+  <div class="sticker-pop" id="sticker-pop"></div>
 </div>
 <script>
 (function () {
   'use strict';
 
+  const FOOTER_TEXT = 'for Jenny  ·  更新于 2026-11-13 23:16（香港时间）';
+
   const TOPPINGS = [
-    { id:'tuna', name:'金枪鱼', emoji:'🐟', color:'#c23b3b', fat:'#f0c8c8', gunkan:false },
-    { id:'salmon', name:'三文鱼', emoji:'🧡', color:'#e8917a', fat:'#fff5ee', gunkan:false },
-    { id:'yellowtail', name:'鰤鱼', emoji:'💛', color:'#e8c070', fat:'#fff8e8', gunkan:false },
-    { id:'seabream', name:'鲷鱼', emoji:'🤍', color:'#f0d8c8', fat:'#ffffff', gunkan:false },
-    { id:'squid', name:'鱿鱼', emoji:'🦑', color:'#e8e4dc', fat:'#ffffff', gunkan:false },
-    { id:'chutoro', name:'中腹', emoji:'❤️', color:'#d4506a', fat:'#fce4ec', gunkan:false },
-    { id:'aji', name:'鯵鱼', emoji:'💚', color:'#8fbc8f', fat:'#e8f5e9', gunkan:false },
-    { id:'scallop', name:'扇贝', emoji:'🐚', color:'#f5e6c8', fat:'#fffaf0', gunkan:false },
-    { id:'shrimp', name:'虾', emoji:'🦐', color:'#f08080', fat:'#ffe4e1', gunkan:false },
-    { id:'tamago', name:'玉子烧', emoji:'🥚', color:'#f5d76e', fat:'#fff8dc', gunkan:false },
-    { id:'ikura', name:'鲑鱼籽', emoji:'🟠', color:'#e85d04', fat:'#ffb703', gunkan:true },
-    { id:'uni', name:'海胆', emoji:'🟠', color:'#f4a261', fat:'#ffe0b2', gunkan:true },
-    { id:'negitoro', name:'葱花金枪鱼', emoji:'🧅', color:'#c45c6a', fat:'#e8f5e9', gunkan:true },
-    { id:'tobiko', name:'飞鱼籽', emoji:'🔴', color:'#c1121f', fat:'#ff6b6b', gunkan:true },
+    { id:'tuna', name:'金枪鱼', emoji:'🐟', color:'#e04a4a', fat:'#ffd6d6', gunkan:false },
+    { id:'salmon', name:'三文鱼', emoji:'🧡', color:'#ff7a5c', fat:'#fff4ea', gunkan:false },
+    { id:'yellowtail', name:'鰤鱼', emoji:'💛', color:'#f5d06a', fat:'#fff8e8', gunkan:false },
+    { id:'seabream', name:'鲷鱼', emoji:'🤍', color:'#f8e0d4', fat:'#ffffff', gunkan:false },
+    { id:'squid', name:'鱿鱼', emoji:'🦑', color:'#efece6', fat:'#ffffff', gunkan:false },
+    { id:'chutoro', name:'中腹', emoji:'❤️', color:'#ee6b82', fat:'#ffe4ec', gunkan:false },
+    { id:'aji', name:'鯵鱼', emoji:'💚', color:'#9fd08f', fat:'#e8f8e9', gunkan:false },
+    { id:'scallop', name:'扇贝', emoji:'🐚', color:'#ffe9c4', fat:'#fffaf0', gunkan:false },
+    { id:'shrimp', name:'虾', emoji:'🦐', color:'#ff8a8a', fat:'#ffe4e1', gunkan:false },
+    { id:'tamago', name:'玉子烧', emoji:'🥚', color:'#ffe07a', fat:'#fff8dc', gunkan:false },
+    { id:'ikura', name:'鲑鱼籽', emoji:'🟠', color:'#ff6b1a', fat:'#ffb703', gunkan:true },
+    { id:'uni', name:'海胆', emoji:'🟠', color:'#ffb347', fat:'#ffe0b2', gunkan:true },
+    { id:'negitoro', name:'葱花金枪鱼', emoji:'🧅', color:'#e06b7a', fat:'#e8f5e9', gunkan:true },
+    { id:'tobiko', name:'飞鱼籽', emoji:'🔴', color:'#e02432', fat:'#ff6b6b', gunkan:true },
   ];
 
   const STEPS = { slice:'切鱼', wet:'湿手', rice:'抓饭', shape:'捏饭', wasabi:'抹芥末', wrap:'包海苔', topping:'放食材', plate:'摆盘' };
 
   const STEP_TIPS = {
-    slice: '📚 握寿司鱼片约 0.8–1.2cm：太薄易散，太厚难入口；一刀直切切口最美',
-    wet: '📚 手蘸「手水」(tezu) 可防粘、保饭粒完整，是职人基本功',
-    rice: '📚 一口量约 15–20g；军舰饭更少，给籽类留空间',
-    shape: '📚 轻轻捏出椭圆饭台：太松散掉，太硬咬不动——「还太松→刚好→别成石头」',
-    wasabi: '📚 芥末抹在饭与鱼之间：保温、杀菌，也让辛香缓缓散开',
-    wrap: '📚 军舰用海苔围边，装松软籽类/海胆，和握寿司做法不同',
-    topping: '📚 鱼片抚平贴合饭台；军舰则舀入馅料，溢出会洒',
-    plate: '📚 姜片(gari)清口换味，不是配着一起吃哦',
+    slice: '鱼片不要太薄也不要太厚，一刀切最漂亮～',
+    wet: '先点一点手水，手就不粘饭啦',
+    rice: '抓一小团，刚好一口的量就好',
+    shape: '轻轻捏成小枕头，别捏太扁哦',
+    wasabi: '一点点绿芥末，抹在饭和鱼中间',
+    wrap: '用海苔围一圈，就能装鱼籽啦',
+    topping: '把鱼片轻轻放在饭上，抚平就好',
+    plate: '寿司姜清口换味，不和寿司一起吃',
+  };
+
+  const STEP_SPEECH = {
+    slice: '向下滑，看刀把鱼切开～',
+    wet: '先点「湿手」，手润润的再抓饭',
+    rice: '按住木桶抓饭，按久一点饭会变多',
+    shape: '点「捏一捏」，看饭团慢慢变形状',
+    wasabi: '在饭上左右滑一下抹芥末，也可以跳过',
+    wrap: '点一下，用海苔把饭围起来',
+    topping: '把食材拖到亮亮的圈里，再轻轻抚平',
+    plate: '摆上木盘，想加点寿司姜也可以',
   };
 
   const ALL_TITLES = [
     '没有特别的怪癖放到最满','入口即化','传说级握寿司','芥末放太多','捏得像石头',
     '切太厚','切太薄像纸片','米饭太多撑爆了','米饭太少空空的','手还粘着饭',
-    '军舰翻船了','摆盘艺术家','刚刚好的匠人','随缘厨师','生姜刺客',
+    '军舰翻船了','摆盘艺术家','刚刚好的匠人','随缘厨师','姜片小达人',
+    '生姜刺客',
   ];
 
-  const RICE_COLORS = ['#fffef9','#fff8ee','#f5efe4','#e8dcc8','#faf6f0','#f0e8d8'];
+  const STICKER_DEFS = [
+    { id:'perfect_cut', name:'✨完美切刀' },
+    { id:'rice_ok', name:'🍱饭团刚好' },
+    { id:'little_chef', name:'🐿小师傅' },
+    { id:'wasabi_star', name:'🌿芥末小达人' },
+    { id:'gunkan_star', name:'🐚军舰追星' },
+    { id:'gari_star', name:'🌸姜片小达人' },
+  ];
 
-  // ---------- State ----------
+  const RICE_COLORS = ['#fffef9','#fff8ee','#fff3e4','#f8ecd8','#faf6f0','#f4ead8'];
+
   const state = {
     screen:'start', pieceIndex:0, pieces:[], topping:null, step:'slice',
     wetHands:false,
@@ -179,7 +246,6 @@ canvas#game.grabbing{cursor:grabbing}
     _scooping:false,
   };
 
-  // Visual / FX state
   const fx = {
     t0: performance.now(),
     knifeTrail: [],
@@ -188,38 +254,44 @@ canvas#game.grabbing{cursor:grabbing}
     pressRipples: [],
     spillParts: [],
     flyingGrains: [],
-    // slice drama
-    slicing: false, // animating cut
-    slicePhase: 0, // 0..1 during cut anim
-    sliceAnim: null, // {start, dur, cutY, jagged, rating, dy}
+    slicing: false,
+    slicePhase: 0,
+    sliceAnim: null,
     fishSquash: 0,
-    separated: null, // {x,y,vx,vy,rot,vr,w,h,alpha,life,rating,jagged}
-    blockFace: 0.5, // cut face position on block (0-1 from left conceptually - we use vertical cut index)
+    separated: null,
+    blockFace: 0.5,
     cutFlash: 0,
     screenPulse: 0,
-    // hands
     hands: { active:false, t:0, press:0 },
-    // step fade
     fade: 1,
     idle: 0,
+    mascotCeleb: 0,
   };
 
-  // Rice particle system
   const rice = {
     bedCanvas: null, bedW:0, bedH:0,
-    mound: [], // grains while grabbing
-    pile: [],  // grains on mat (shape+)
+    mound: [],
+    pile: [],
     pileSeed: 1,
-    morph: 0, // 0 loose .. 1 firm .. >1 flat
+    morph: 0,
     morphTarget: 0,
     targetCount: 0,
   };
 
+  const audio = { ctx:null, muted:false };
+
   let collectedTitles = loadTitles();
+  let collectedStickers = loadStickers();
+  let sessionStickers = [];
+
   function loadTitles(){ try{ return JSON.parse(localStorage.getItem('sushi_titles')||'[]'); }catch(e){ return []; } }
   function saveTitle(t){ if(!collectedTitles.includes(t)){ collectedTitles.push(t); localStorage.setItem('sushi_titles', JSON.stringify(collectedTitles)); return true;} return false; }
+  function loadStickers(){ try{ return JSON.parse(localStorage.getItem('sushi_stickers')||'{}'); }catch(e){ return {}; } }
+  function saveSticker(id){
+    collectedStickers[id]=(collectedStickers[id]||0)+1;
+    localStorage.setItem('sushi_stickers', JSON.stringify(collectedStickers));
+  }
 
-  // ---------- Seeded RNG ----------
   function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
   function shade(hex, amt){
     const n=parseInt(hex.slice(1),16);
@@ -232,7 +304,67 @@ canvas#game.grabbing{cursor:grabbing}
   function easeInOut(t){ return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
   function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
 
-  // ---------- DOM ----------
+  function unlockAudio(){
+    try{
+      if(!audio.ctx){
+        const AC=window.AudioContext||window.webkitAudioContext;
+        if(!AC) return null;
+        audio.ctx=new AC();
+      }
+      if(audio.ctx.state==='suspended') audio.ctx.resume();
+      return audio.ctx;
+    }catch(e){ return null; }
+  }
+  function ensureAudio(){ if(audio.muted) return null; return unlockAudio(); }
+  function tone(freq, dur, type, vol, when, slide){
+    const ctx=ensureAudio(); if(!ctx) return;
+    const t=ctx.currentTime+(when||0);
+    const o=ctx.createOscillator();
+    const g=ctx.createGain();
+    o.type=type||'sine';
+    o.frequency.setValueAtTime(freq, t);
+    if(slide) o.frequency.exponentialRampToValueAtTime(Math.max(40,slide), t+dur);
+    g.gain.setValueAtTime(Math.max(0.0001, vol||0.08), t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t+dur+0.02);
+  }
+  function sfxPop(){ tone(720, 0.09, 'triangle', 0.07); tone(1080, 0.06, 'sine', 0.03, 0.02); }
+  function sfxChime(){ tone(880, 0.16, 'sine', 0.07); tone(1320, 0.2, 'sine', 0.055, 0.07); tone(1760, 0.24, 'sine', 0.04, 0.14); }
+  function sfxWhoosh(){
+    const ctx=ensureAudio(); if(!ctx) return;
+    const t=ctx.currentTime;
+    try{
+      const len=Math.floor(ctx.sampleRate*0.22);
+      const buf=ctx.createBuffer(1,len,ctx.sampleRate);
+      const data=buf.getChannelData(0);
+      for(let i=0;i<len;i++) data[i]=(Math.random()*2-1)*Math.pow(1-i/len,1.4);
+      const src=ctx.createBufferSource(); src.buffer=buf;
+      const f=ctx.createBiquadFilter(); f.type='bandpass'; f.frequency.setValueAtTime(2200,t); f.frequency.exponentialRampToValueAtTime(380,t+0.2);
+      const g=ctx.createGain(); g.gain.setValueAtTime(0.16,t); g.gain.exponentialRampToValueAtTime(0.0001,t+0.22);
+      src.connect(f); f.connect(g); g.connect(ctx.destination); src.start(t);
+    }catch(e){ tone(900, 0.16, 'sawtooth', 0.04, 0, 280); }
+  }
+  function sfxDing(){
+    tone(523, 0.18, 'sine', 0.07);
+    tone(659, 0.2, 'sine', 0.06, 0.08);
+    tone(784, 0.28, 'sine', 0.07, 0.16);
+    tone(1046, 0.32, 'triangle', 0.04, 0.24);
+  }
+  function updateMuteButtons(){
+    const label=audio.muted?'🔇':'🔊';
+    const start=$('#btn-mute-start');
+    const hud=$('#btn-mute');
+    if(hud) hud.textContent=label;
+    if(start) start.textContent=audio.muted?'🔇 声音关':'🔊 声音开';
+  }
+  function toggleMute(){
+    audio.muted=!audio.muted;
+    if(!audio.muted) unlockAudio();
+    updateMuteButtons();
+    if(!audio.muted) sfxPop();
+  }
+
   const $=s=>document.querySelector(s);
   const canvas=$('#game');
   const ctx=canvas.getContext('2d');
@@ -246,7 +378,7 @@ canvas#game.grabbing{cursor:grabbing}
     W=Math.max(280,rect.width); H=Math.max(280,rect.height);
     canvas.width=W*dpr; canvas.height=H*dpr;
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    rice.bedCanvas=null; // rebuild bed
+    rice.bedCanvas=null;
     needAnim();
   }
 
@@ -269,21 +401,48 @@ canvas#game.grabbing{cursor:grabbing}
   }
 
   function spawnSparkles(x,y,n,col){
+    const kinds=['star','heart','spark'];
     for(let i=0;i<n;i++){
-      const a=Math.random()*Math.PI*2, sp=1+Math.random()*3;
-      fx.sparkles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-1.5,life:1,col:col||'#fff8e0',sz:2+Math.random()*3});
+      const a=Math.random()*Math.PI*2, sp=1.2+Math.random()*3.4;
+      fx.sparkles.push({
+        x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-1.8,life:1,
+        col:col||(i%3===1?'#ff8aa8':'#fff3a0'),
+        sz:3+Math.random()*4,
+        kind:kinds[i%3],
+        rot:Math.random()*Math.PI,
+        vr:(Math.random()-0.5)*0.2
+      });
     }
   }
+  function spawnBurst(x,y,n){
+    spawnSparkles(x,y,n||16,'#fff3a0');
+    spawnSparkles(x,y,Math.ceil((n||16)/2),'#ff8aa8');
+  }
+  function celebMascot(){
+    fx.mascotCeleb=0.8;
+    const el=$('#mascot');
+    if(!el) return;
+    el.classList.remove('celebrate','point');
+    void el.offsetWidth;
+    el.classList.add('celebrate');
+    clearTimeout(celebMascot._t);
+    celebMascot._t=setTimeout(()=>{ el.classList.remove('celebrate'); syncMascotClass(); }, 600);
+  }
+  function syncMascotClass(){
+    const el=$('#mascot'); if(!el) return;
+    if(el.classList.contains('celebrate')) return;
+    const pointing=state.step==='slice'||state.step==='topping'||state.step==='rice';
+    el.classList.toggle('point', pointing && fx.mascotCeleb<=0);
+  }
 
-  // ---------- Rice grains ----------
   function makeGrain(rng, ox, oy, oz){
     return {
       ox, oy, oz: oz||0,
       x:ox, y:oy, z:oz||0,
       tx:ox, ty:oy, tz:oz||0,
       rot:(rng()*Math.PI),
-      len:5+rng()*2.2,
-      wid:2.4+rng()*1.1,
+      len:4.6+rng()*1.8,
+      wid:2.9+rng()*1.2,
       col:RICE_COLORS[(rng()*RICE_COLORS.length)|0],
       stick: rng()<0.08,
     };
@@ -296,7 +455,6 @@ canvas#game.grabbing{cursor:grabbing}
     const g=c.getContext('2d');
     g.setTransform(dpr,0,0,dpr,0,0);
     const rng=mulberry32(42);
-    // fill ellipse with dense grains
     for(let i=0;i<360;i++){
       const u=rng(), v=rng();
       const ang=u*Math.PI*2;
@@ -304,11 +462,10 @@ canvas#game.grabbing{cursor:grabbing}
       const x=bw/2+Math.cos(ang)*rad*90;
       const y=bh/2+Math.sin(ang)*rad*40;
       const rot=rng()*Math.PI;
-      const len=4.5+rng()*2, wid=2.2+rng()*1;
+      const len=4.2+rng()*1.8, wid=2.6+rng()*1.1;
       g.save(); g.translate(x,y); g.rotate(rot);
       g.fillStyle=RICE_COLORS[(rng()*RICE_COLORS.length)|0];
       g.beginPath(); g.ellipse(0,0,len/2,wid/2,0,0,Math.PI*2); g.fill();
-      // tiny highlight
       g.globalAlpha=0.35; g.fillStyle='#fff';
       g.beginPath(); g.ellipse(-len*0.15,-wid*0.15,len*0.18,wid*0.18,0,0,Math.PI*2); g.fill();
       g.globalAlpha=1; g.restore();
@@ -317,17 +474,15 @@ canvas#game.grabbing{cursor:grabbing}
   }
 
   function syncMoundGrains(amt){
-    const target=Math.floor(40+amt*140); // 40..180
+    const target=Math.floor(40+amt*140);
     rice.targetCount=target;
     const rng=mulberry32(1000+((amt*1000)|0));
     while(rice.mound.length<target){
       const i=rice.mound.length;
-      const t=i/Math.max(1,target);
       const ang=rng()*Math.PI*2;
       const rad=Math.sqrt(rng())*(12+amt*28);
       const h=rng()*(10+amt*36)*(1-rad/(12+amt*28+1));
       const g=makeGrain(rng, Math.cos(ang)*rad*0.85, -h, Math.sin(ang)*rad*0.35);
-      // fly-in from hangiri edge
       g.x=g.ox-30-rng()*40; g.y=g.oy+20; g.fly=1;
       rice.mound.push(g);
       if(state.stickyPenalty && rng()<0.12){
@@ -339,7 +494,7 @@ canvas#game.grabbing{cursor:grabbing}
 
   function buildPileFromRice(){
     const amt=state.riceAmount||0.4;
-    const n=Math.floor(70+amt*160); // 70-230
+    const n=Math.floor(70+amt*160);
     rice.pileSeed=(state.pieceIndex+1)*997+(state.topping?state.topping.id.length:0)*13+((amt*100)|0);
     const rng=mulberry32(rice.pileSeed);
     rice.pile=[];
@@ -347,7 +502,6 @@ canvas#game.grabbing{cursor:grabbing}
     for(let i=0;i<n;i++){
       const ang=rng()*Math.PI*2;
       const rad=Math.sqrt(rng());
-      // loose tall irregular mound
       const rx=28+amt*18, ry=18+amt*10;
       const ox=Math.cos(ang)*rad*rx;
       const oz=Math.sin(ang)*rad*ry*0.55;
@@ -359,7 +513,6 @@ canvas#game.grabbing{cursor:grabbing}
   }
 
   function applyMorphToPile(morph){
-    // morph 0=loose tall, 0.45=nice oval, 1=flat puck
     const m=clamp(morph,0,1.35);
     rice.morph=m;
     for(const g of rice.pile){
@@ -380,7 +533,6 @@ canvas#game.grabbing{cursor:grabbing}
       const oz=Math.sin(ang)*rad*ry;
       const h=(1-rad)*(24)*(hMul)*(0.75+((g.len%1)*0.4));
       g.tx=ox; g.tz=oz; g.ty=-Math.max(1.5, h);
-      // overpress: grains splay outward
       if(m>1){
         const e=m-1;
         g.tx*=1+e*0.35; g.tz*=1+e*0.2; g.ty*=Math.max(0.15,1-e);
@@ -393,27 +545,26 @@ canvas#game.grabbing{cursor:grabbing}
     for(const g of rice.pile){
       g.x=lerp(g.x,g.tx,k); g.y=lerp(g.y,g.ty,k); g.z=lerp(g.z,g.tz,k);
     }
-    // morph ease
     rice.morph=lerp(rice.morph, rice.morphTarget, Math.min(1,dt*6));
   }
 
   function drawGrainAt(g, cx, cy, scale, shadow){
     const sx=cx+g.x*scale, sy=cy+(g.y+g.z*0.35)*scale;
+    ctx.fillStyle='rgba(40,30,20,0.16)';
+    ctx.beginPath(); ctx.ellipse(sx+1.2, sy+2.4*scale, g.len*0.48*scale, g.wid*0.32*scale, g.rot,0,Math.PI*2); ctx.fill();
     if(shadow){
-      ctx.fillStyle='rgba(40,30,20,0.12)';
+      ctx.fillStyle='rgba(40,30,20,0.08)';
       ctx.beginPath(); ctx.ellipse(sx+1, cy+8*scale+(g.z*0.1), g.len*0.45*scale, g.wid*0.35*scale, g.rot,0,Math.PI*2); ctx.fill();
     }
     ctx.save();
     ctx.translate(sx,sy); ctx.rotate(g.rot);
     const lw=g.len*scale, ww=g.wid*scale;
-    // body
     const grd=ctx.createLinearGradient(-lw/2,0,lw/2,0);
     grd.addColorStop(0, shade(g.col,-8));
     grd.addColorStop(0.45, g.col);
     grd.addColorStop(1, shade(g.col,12));
     ctx.fillStyle=grd;
     ctx.beginPath(); ctx.ellipse(0,0,lw/2,ww/2,0,0,Math.PI*2); ctx.fill();
-    // gloss
     ctx.globalAlpha=0.4; ctx.fillStyle='#fff';
     ctx.beginPath(); ctx.ellipse(-lw*0.12,-ww*0.18,lw*0.2,ww*0.22,0,0,Math.PI*2); ctx.fill();
     ctx.globalAlpha=1;
@@ -422,29 +573,39 @@ canvas#game.grabbing{cursor:grabbing}
 
   function drawGrainPile(cx, cy, grains, scale){
     scale=scale||1;
-    // soft pile shadow
     ctx.fillStyle='rgba(30,40,60,0.18)';
     ctx.beginPath();
     const firm=clamp(rice.morph,0,1);
     ctx.ellipse(cx, cy+10*scale, lerp(34,40,firm)*scale, lerp(16,12,firm)*scale, 0,0,Math.PI*2);
     ctx.fill();
-    // sort by depth (y+z)
     const sorted=grains.slice().sort((a,b)=>(a.y+a.z)-(b.y+b.z));
     for(const g of sorted) drawGrainAt(g, cx, cy, scale, false);
   }
 
-  // ---------- Drawing helpers ----------
   function roundRect(x,y,w,h,r){
     ctx.beginPath();
     ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r);
     ctx.closePath();
   }
 
+  function sashimiPath(w,h,r){
+    const arch=h*0.1;
+    r=Math.min(r, h*0.4, w*0.2);
+    ctx.beginPath();
+    ctx.moveTo(-w/2+r, -h/2);
+    ctx.quadraticCurveTo(0, -h/2-arch, w/2-r, -h/2);
+    ctx.arcTo(w/2, -h/2, w/2, 0, r);
+    ctx.quadraticCurveTo(w/2+1, h/2, w/2-r, h/2);
+    ctx.quadraticCurveTo(0, h/2+arch*0.4, -w/2+r, h/2);
+    ctx.arcTo(-w/2, h/2, -w/2, 0, r);
+    ctx.closePath();
+  }
+
   function drawWoodBg(){
     const g=ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0,'#efe4d2'); g.addColorStop(1,'#d4c0a0');
+    g.addColorStop(0,'#f6ead6'); g.addColorStop(1,'#e2c8a4');
     ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
-    ctx.strokeStyle='rgba(139,105,20,0.07)'; ctx.lineWidth=1.2;
+    ctx.strokeStyle='rgba(176,122,56,0.08)'; ctx.lineWidth=1.2;
     for(let y=16;y<H;y+=22){
       ctx.beginPath(); ctx.moveTo(0,y);
       for(let x=0;x<W;x+=16) ctx.lineTo(x, y+Math.sin(x*0.04+y*0.02)*2.5);
@@ -453,21 +614,19 @@ canvas#game.grabbing{cursor:grabbing}
   }
 
   function drawMat(cx,cy,w,h){
-    // soft shadow
     ctx.fillStyle='rgba(30,40,70,0.15)';
-    roundRect(cx-w/2+3, cy-h/2+5, w, h, 14); ctx.fill();
-    roundRect(cx-w/2, cy-h/2, w, h, 12);
+    roundRect(cx-w/2+3, cy-h/2+5, w, h, 16); ctx.fill();
+    roundRect(cx-w/2, cy-h/2, w, h, 14);
     const g=ctx.createLinearGradient(cx,cy-h/2,cx,cy+h/2);
-    g.addColorStop(0,'#3a5f9a'); g.addColorStop(1,'#243f6e');
+    g.addColorStop(0,'#4a72bc'); g.addColorStop(1,'#2a4e88');
     ctx.fillStyle=g; ctx.fill();
-    ctx.strokeStyle='rgba(255,255,255,0.55)'; ctx.lineWidth=2.5; ctx.stroke();
-    // weave grid
+    ctx.strokeStyle='rgba(255,255,255,0.6)'; ctx.lineWidth=2.5; ctx.stroke();
     ctx.strokeStyle='rgba(255,255,255,0.07)'; ctx.lineWidth=1;
     for(let i=-w/2+6;i<w/2;i+=7){ ctx.beginPath(); ctx.moveTo(cx+i,cy-h/2+4); ctx.lineTo(cx+i,cy+h/2-4); ctx.stroke(); }
     for(let j=-h/2+6;j<h/2;j+=7){ ctx.beginPath(); ctx.moveTo(cx-w/2+4,cy+j); ctx.lineTo(cx+w/2-4,cy+j); ctx.stroke(); }
   }
 
-  function drawWaterBowl(cx,cy,rippling){
+  function drawWaterBowl(cx,cy){
     ctx.fillStyle='rgba(40,40,50,0.12)';
     ctx.beginPath(); ctx.ellipse(cx+2,cy+10,22,8,0,0,Math.PI*2); ctx.fill();
     ctx.beginPath(); ctx.ellipse(cx,cy,20,12,0,0,Math.PI*2);
@@ -475,41 +634,50 @@ canvas#game.grabbing{cursor:grabbing}
     ctx.strokeStyle='rgba(180,180,175,0.8)'; ctx.stroke();
     ctx.beginPath(); ctx.ellipse(cx,cy-2,14,7,0,0,Math.PI*2);
     const wg=ctx.createRadialGradient(cx-3,cy-4,1,cx,cy,14);
-    wg.addColorStop(0,'#c8e8f8'); wg.addColorStop(1,'#6eb0d8');
+    wg.addColorStop(0,'#d8f2ff'); wg.addColorStop(1,'#6eb0d8');
     ctx.fillStyle=wg; ctx.fill();
-    // ripples
     for(const r of fx.waterRipples){
       ctx.strokeStyle=`rgba(255,255,255,${r.life*0.5})`;
       ctx.lineWidth=1.5;
       ctx.beginPath(); ctx.ellipse(cx,cy-2,6+r.r,3+r.r*0.5,0,0,Math.PI*2); ctx.stroke();
     }
     if(state.wetHands){
-      ctx.fillStyle='rgba(74,155,110,0.85)';
+      ctx.fillStyle='rgba(61,184,122,0.9)';
       ctx.font='11px sans-serif'; ctx.textAlign='center';
       ctx.fillText('湿', cx, cy+22);
     }
   }
 
-  // Realistic sashimi slice / block
   function drawSashimiFlesh(x,y,w,h,rot,t,opts){
     opts=opts||{};
     const col=t.color, fat=t.fat||'#fff5ee';
     ctx.save();
     ctx.translate(x,y); ctx.rotate(rot||0);
     if(opts.scaleX) ctx.scale(opts.scaleX, opts.scaleY||1);
-    // bend for drape
     const bend=opts.bend||0;
-    roundRect(-w/2, -h/2, w, h, opts.r||Math.min(10,h*0.35));
+    const r=opts.r||Math.min(10,h*0.35);
+    ctx.save();
+    ctx.translate(2.5, 5);
+    sashimiPath(w,h,r);
+    ctx.fillStyle='rgba(50,25,18,0.22)';
+    ctx.fill();
+    ctx.restore();
+    ctx.save();
+    ctx.translate(1.2, 2.4);
+    sashimiPath(w,h,r);
+    ctx.fillStyle=shade(col,-38);
+    ctx.fill();
+    ctx.restore();
+    sashimiPath(w,h,r);
     const g=ctx.createLinearGradient(-w/2,0,w/2,0);
     g.addColorStop(0, shade(col,-22));
     g.addColorStop(0.35, col);
     g.addColorStop(0.7, shade(col,18));
     g.addColorStop(1, shade(col,-8));
     ctx.fillStyle=g; ctx.fill();
-    // marbling / fat lines
     ctx.save();
     ctx.clip();
-    ctx.strokeStyle=fat; ctx.globalAlpha=0.55; ctx.lineWidth=1.4; ctx.lineCap='round';
+    ctx.strokeStyle=fat; ctx.globalAlpha=0.6; ctx.lineWidth=1.5; ctx.lineCap='round';
     const lines=opts.lines||6;
     for(let i=0;i<lines;i++){
       const yy=-h/2+6+i*(h-10)/(lines-0.5);
@@ -518,31 +686,30 @@ canvas#game.grabbing{cursor:grabbing}
       ctx.quadraticCurveTo(0, yy-3+i*0.3+bend, w/2-4, yy+2);
       ctx.stroke();
       if(i%2===0){
-        ctx.globalAlpha=0.28;
+        ctx.globalAlpha=0.3;
         ctx.beginPath();
         ctx.moveTo(-w/2+10, yy+4);
         ctx.quadraticCurveTo(w*0.1, yy+1, w/2-8, yy+5);
         ctx.stroke();
-        ctx.globalAlpha=0.55;
+        ctx.globalAlpha=0.6;
       }
     }
-    // top gloss
     ctx.globalAlpha=0.22; ctx.fillStyle='#fff';
     ctx.beginPath(); ctx.ellipse(-w*0.1,-h*0.22,w*0.28,h*0.18, -0.2,0,Math.PI*2); ctx.fill();
     ctx.restore();
-    // outline soft
-    ctx.strokeStyle='rgba(80,40,30,0.18)'; ctx.lineWidth=1; 
-    roundRect(-w/2,-h/2,w,h,opts.r||Math.min(10,h*0.35)); ctx.stroke();
-    // juicy cut face
+    ctx.strokeStyle='rgba(80,40,30,0.18)'; ctx.lineWidth=1;
+    sashimiPath(w,h,r); ctx.stroke();
+    ctx.globalAlpha=0.28; ctx.strokeStyle='#fff'; ctx.lineWidth=1.4;
+    ctx.beginPath(); ctx.moveTo(-w/2+6,-h/2+4); ctx.quadraticCurveTo(0,-h/2-2,w/2-10,-h/2+6); ctx.stroke();
+    ctx.globalAlpha=1;
     if(opts.cutFace){
-      const face=opts.cutFace; // 'left'|'right'|'bottom'
+      const face=opts.cutFace;
       ctx.globalAlpha=0.9;
       if(face==='right'){
         const cg=ctx.createLinearGradient(w/2-2,-h/2,w/2+6,h/2);
         cg.addColorStop(0, shade(col,30)); cg.addColorStop(0.5, shade(col,10)); cg.addColorStop(1, shade(col,-10));
         ctx.fillStyle=cg;
         ctx.beginPath(); ctx.moveTo(w/2-1,-h/2+2); ctx.lineTo(w/2+5,-h/2+6); ctx.lineTo(w/2+5,h/2-4); ctx.lineTo(w/2-1,h/2-2); ctx.closePath(); ctx.fill();
-        // gloss stripe
         ctx.globalAlpha=0.45; ctx.fillStyle='#fff';
         ctx.fillRect(w/2, -h*0.2, 2.5, h*0.35);
       }
@@ -553,49 +720,166 @@ canvas#game.grabbing{cursor:grabbing}
   function drawKnife(x,y,ang){
     ctx.save();
     ctx.translate(x,y); ctx.rotate(ang||0);
-    // blade
+    ctx.fillStyle='rgba(30,25,20,0.22)';
+    ctx.beginPath(); ctx.moveTo(-5,0); ctx.lineTo(38,5); ctx.lineTo(-5,8); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#9aa2ac';
+    ctx.beginPath(); ctx.moveTo(-6,-4); ctx.lineTo(38,0); ctx.lineTo(-6,5); ctx.closePath(); ctx.fill();
     ctx.fillStyle='#d8dce2';
-    ctx.beginPath(); ctx.moveTo(-6,-4); ctx.lineTo(38,0); ctx.lineTo(-6,4); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#f4f6f8';
-    ctx.beginPath(); ctx.moveTo(-6,-2); ctx.lineTo(34,0); ctx.lineTo(-6,1); ctx.closePath(); ctx.fill();
-    // handle
+    ctx.beginPath(); ctx.moveTo(-6,-4); ctx.lineTo(38,0); ctx.lineTo(-6,3.2); ctx.closePath(); ctx.fill();
+    const kg=ctx.createLinearGradient(-6,-3,8,3);
+    kg.addColorStop(0,'#ffffff'); kg.addColorStop(0.35,'#f4f6f8'); kg.addColorStop(1,'#c5ccd4');
+    ctx.fillStyle=kg;
+    ctx.beginPath(); ctx.moveTo(-6,-2.2); ctx.lineTo(34,0); ctx.lineTo(-6,0.8); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,0.65)';
+    ctx.beginPath(); ctx.moveTo(-4,-1.6); ctx.lineTo(28,-0.2); ctx.lineTo(-4,-0.4); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='rgba(40,25,18,0.25)';
+    roundRect(-20,-2,18,10,2); ctx.fill();
     ctx.fillStyle='#5c3a28';
     roundRect(-22,-5,18,10,2); ctx.fill();
-    ctx.fillStyle='#8b6914'; roundRect(-20,-3.5,6,7,1); ctx.fill();
+    const hg=ctx.createLinearGradient(-22,-5,-4,5);
+    hg.addColorStop(0,'#7a4e32'); hg.addColorStop(1,'#4a2c1c');
+    ctx.fillStyle=hg; roundRect(-22,-5,18,10,2); ctx.fill();
+    ctx.fillStyle='#c9a227'; roundRect(-20,-3.5,6,7,1); ctx.fill();
     ctx.restore();
   }
 
-  // ---------- Step drawers ----------
+  function drawGari(x,y,scale){
+    scale=scale||1;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.scale(scale,scale);
+    const slices=[
+      {dx:-7, dy:7, rot:-0.4, w:24, h:6.2, col:'#f4c0ce'},
+      {dx:3, dy:4, rot:0.22, w:26, h:6.4, col:'#ffd6de'},
+      {dx:-3, dy:0, rot:-0.12, w:25, h:5.8, col:'#f7b8c8'},
+      {dx:5, dy:-5, rot:0.38, w:22, h:5.4, col:'#ffe8ee'},
+    ];
+    for(const s of slices){
+      ctx.save();
+      ctx.translate(s.dx, s.dy);
+      ctx.rotate(s.rot);
+      ctx.fillStyle='rgba(120,50,70,0.2)';
+      ctx.beginPath(); ctx.ellipse(1.6, 3.2, s.w/2, s.h/2+0.6, 0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=shade(s.col,-28);
+      ctx.beginPath(); ctx.ellipse(0.4, 1.3, s.w/2, s.h/2, 0,0,Math.PI*2); ctx.fill();
+      const cg=ctx.createLinearGradient(-s.w/2,-s.h/2,s.w/2,s.h/2);
+      cg.addColorStop(0, shade(s.col,-16));
+      cg.addColorStop(0.4, s.col);
+      cg.addColorStop(1, shade(s.col,22));
+      ctx.fillStyle=cg;
+      ctx.beginPath(); ctx.ellipse(0,0,s.w/2,s.h/2,0,0,Math.PI*2); ctx.fill();
+      ctx.globalAlpha=0.5; ctx.fillStyle='#fff';
+      ctx.beginPath(); ctx.ellipse(-s.w*0.12,-s.h*0.18,s.w*0.22,s.h*0.22,0,0,Math.PI*2); ctx.fill();
+      ctx.globalAlpha=1;
+      ctx.strokeStyle='rgba(210,110,130,0.28)'; ctx.lineWidth=0.8;
+      ctx.beginPath(); ctx.ellipse(0,0,s.w/2,s.h/2,0,0,Math.PI*2); ctx.stroke();
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  function drawMascotAt(x,y,scale,pose){
+    const t=fx.idle;
+    let bob=Math.sin(t*2.6)*3;
+    let jump=0;
+    let armAng=0.25;
+    if(pose==='point') armAng=-0.95+Math.sin(t*4)*0.12;
+    if(pose==='celebrate'){
+      jump=Math.abs(Math.sin(fx.mascotCeleb*10))*11;
+      armAng=-1.25;
+    }
+    ctx.save();
+    ctx.translate(x, y-bob-jump);
+    ctx.scale(scale, scale);
+    ctx.fillStyle='rgba(40,30,20,0.12)';
+    ctx.beginPath(); ctx.ellipse(0, 28, 16, 5, 0,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle='#e89a3a'; ctx.lineWidth=3; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(12, 8);
+    ctx.quadraticCurveTo(28, 4+Math.sin(t*3)*4, 22, 20);
+    ctx.stroke();
+    ctx.fillStyle='#f4b24a';
+    ctx.beginPath(); ctx.ellipse(0, 10, 14, 12, 0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#f6c56a';
+    ctx.beginPath(); ctx.arc(0, -8, 13, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle='#f4b24a';
+    ctx.beginPath(); ctx.moveTo(-11,-14); ctx.lineTo(-16,-26); ctx.lineTo(-4,-18); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(11,-14); ctx.lineTo(16,-26); ctx.lineTo(4,-18); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#ffe8c8';
+    ctx.beginPath(); ctx.moveTo(-10,-16); ctx.lineTo(-13,-22); ctx.lineTo(-6,-17); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(10,-16); ctx.lineTo(13,-22); ctx.lineTo(6,-17); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#ffe8c8';
+    ctx.beginPath(); ctx.ellipse(0,-5,8,7,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#3d2b1f';
+    ctx.beginPath(); ctx.arc(-4.5,-7,1.6,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(4.5,-7,1.6,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#fff';
+    ctx.beginPath(); ctx.arc(-3.8,-7.6,0.6,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(5.2,-7.6,0.6,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#e8899a';
+    ctx.beginPath(); ctx.ellipse(0,-3.5,1.6,1.1,0,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle='#3d2b1f'; ctx.lineWidth=0.8;
+    ctx.beginPath(); ctx.moveTo(0,-2.4); ctx.quadraticCurveTo(-2,0.2, -3.5,-0.2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,-2.4); ctx.quadraticCurveTo(2,0.2, 3.5,-0.2); ctx.stroke();
+    ctx.strokeStyle='rgba(80,40,30,0.35)'; ctx.lineWidth=0.7;
+    ctx.beginPath(); ctx.moveTo(-6,-3); ctx.lineTo(-16,-1); ctx.moveTo(-6,-1); ctx.lineTo(-16,2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(6,-3); ctx.lineTo(16,-1); ctx.moveTo(6,-1); ctx.lineTo(16,2); ctx.stroke();
+    ctx.fillStyle='#ffd0d8';
+    ctx.globalAlpha=0.7;
+    ctx.beginPath(); ctx.ellipse(-7,-1,3,2,0,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(7,-1,3,2,0,0,Math.PI*2); ctx.fill();
+    ctx.globalAlpha=1;
+    const paw=function(px,py,ang){
+      ctx.save(); ctx.translate(px,py); ctx.rotate(ang);
+      ctx.fillStyle='#f4b24a';
+      ctx.beginPath(); ctx.ellipse(0,0,5,4,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='#ffe8c8';
+      ctx.beginPath(); ctx.ellipse(1,0.5,3,2.4,0,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+    };
+    paw(-16, 6, pose==='point'?armAng:-0.4);
+    paw(16, 6, pose==='celebrate'?-armAng: (pose==='point'?0.15:0.4));
+    if(pose==='celebrate'){
+      ctx.font='10px serif'; ctx.fillText('💗', 14, -22);
+      ctx.fillText('✨', -20, -18);
+    }
+    ctx.restore();
+  }
+
+  function mascotPoseNow(){
+    if(fx.mascotCeleb>0) return 'celebrate';
+    if(state.step==='slice'||state.step==='topping'||state.step==='rice') return 'point';
+    return 'idle';
+  }
+  function drawSceneMascot(){
+    drawMascotAt(W*0.13, H*0.82, 1, mascotPoseNow());
+  }
+
   function drawFishBlock(){
     const cx=W*0.38, cy=H*0.42;
     const fw=130, fh=78;
     const sq=1-fx.fishSquash*0.08;
-    // cutting board right
     const bx=W*0.78, by=H*0.55;
-    ctx.fillStyle='rgba(60,40,20,0.12)';
-    roundRect(bx-55, by-70, 110, 150, 8); ctx.fill();
+    ctx.fillStyle='rgba(40,25,12,0.2)';
+    roundRect(bx-52, by-66, 110, 150, 10); ctx.fill();
     roundRect(bx-58, by-75, 116, 155, 8);
-    const bg=ctx.createLinearGradient(bx,by-75,bx,by+80);
-    bg.addColorStop(0,'#f3e6d0'); bg.addColorStop(1,'#d9c4a0');
+    const bg=ctx.createLinearGradient(bx-40,by-75,bx+50,by+80);
+    bg.addColorStop(0,'#f7ebd4'); bg.addColorStop(0.55,'#e4ccaa'); bg.addColorStop(1,'#c9ae86');
     ctx.fillStyle=bg; ctx.fill();
-    ctx.strokeStyle='rgba(139,105,20,0.25)'; ctx.stroke();
-    // wood grain on board
-    ctx.strokeStyle='rgba(139,105,20,0.08)';
+    ctx.strokeStyle='rgba(139,105,20,0.28)'; ctx.stroke();
+    ctx.strokeStyle='rgba(255,255,255,0.28)'; ctx.lineWidth=1.2;
+    ctx.beginPath(); ctx.moveTo(bx-50, by-68); ctx.lineTo(bx+48, by-68); ctx.stroke();
+    ctx.strokeStyle='rgba(139,105,20,0.08)'; ctx.lineWidth=1;
     for(let i=0;i<8;i++){ ctx.beginPath(); ctx.moveTo(bx-50, by-60+i*18); ctx.lineTo(bx+50, by-55+i*18); ctx.stroke(); }
 
-    // guide text
     ctx.fillStyle='rgba(0,0,0,0.4)'; ctx.font='12px sans-serif'; ctx.textAlign='center';
-    ctx.fillText('↓ 下滑选厚度 · 松手切开', cx, cy+fh/2+36);
+    ctx.fillText('↓ 慢慢下滑选厚度 · 松开切开', cx, cy+fh/2+36);
 
-    // fish block with squash
     const t=state.topping;
     ctx.save();
     ctx.translate(cx,cy); ctx.scale(1, sq);
-    // shadow
-    ctx.fillStyle='rgba(60,30,20,0.18)';
-    roundRect(-fw/2+4, -fh/2+8, fw, fh, 12); ctx.fill();
+    ctx.fillStyle='rgba(50,25,15,0.22)';
+    roundRect(-fw/2+6, -fh/2+12, fw, fh, 12); ctx.fill();
     drawSashimiFlesh(0,0,fw,fh,0,t,{r:12, lines:7, cutFace: state.sliceCuts.length?'right':null});
-    // previous cut marks
     state.sliceCuts.forEach(cut=>{
       const y=-fh/2+(cut.t||0.5)*fh;
       ctx.strokeStyle='rgba(255,255,255,0.65)'; ctx.lineWidth=2;
@@ -605,23 +889,20 @@ canvas#game.grabbing{cursor:grabbing}
       else { ctx.moveTo(x0,y); ctx.lineTo(x1,y); }
       ctx.stroke();
     });
-    // active knife guide line (red) while dragging
     if(state.dragging && state.step==='slice' && state.dragStart && !fx.slicing){
       const p=state.lastPointer;
       const localY=clamp((state.dragStart.y-cy)/fh+0.5,0.12,0.88);
       const yy=-fh/2+localY*fh;
       ctx.strokeStyle='rgba(220,60,50,0.85)'; ctx.lineWidth=2; ctx.setLineDash([5,4]);
       ctx.beginPath(); ctx.moveTo(-fw/2+6,yy); ctx.lineTo(fw/2-6,yy); ctx.stroke(); ctx.setLineDash([]);
-      // thickness preview label
       const dy=p? (p.y-state.dragStart.y):0;
-      let lab='厚度预览';
-      if(dy<50) lab='偏薄'; else if(dy>160) lab='偏厚'; else lab='刚好';
+      let lab='正好！';
+      if(dy<30) lab='薄薄的'; else if(dy>200) lab='厚厚的';
       ctx.fillStyle='rgba(220,60,50,0.9)'; ctx.font='bold 13px sans-serif';
       ctx.fillText(lab, 0, yy-10);
     }
     ctx.restore();
 
-    // knife trail + knife
     if((state.dragging && state.step==='slice') || fx.slicing){
       const p=state.lastPointer||{x:cx,y:cy};
       let kx=p.x, ky=p.y;
@@ -630,14 +911,12 @@ canvas#game.grabbing{cursor:grabbing}
         const cut=fx.sliceAnim;
         kx=lerp(cx-fw/2-10, cx+fw/2+20, u);
         ky=cy-fh/2+cut.cutY*fh + Math.sin(u*Math.PI*6)* (cut.jagged?3.5:1.2);
-        // trail
         fx.knifeTrail.push({x:kx,y:ky,life:1});
       } else if(state.lastPointer){
         kx=state.lastPointer.x + Math.sin(performance.now()/40)*1.2;
         ky=state.lastPointer.y;
         fx.knifeTrail.push({x:kx,y:ky,life:1});
       }
-      // motion blur trail
       for(let i=0;i<fx.knifeTrail.length;i++){
         const tr=fx.knifeTrail[i];
         ctx.globalAlpha=tr.life*0.35;
@@ -648,16 +927,14 @@ canvas#game.grabbing{cursor:grabbing}
       drawKnife(kx,ky, fx.slicing?0.15:-0.4);
     }
 
-    // separated slice piece
     if(fx.separated){
       const s=fx.separated;
       const alpha=clamp(s.alpha,0,1);
       ctx.globalAlpha=alpha;
-      // shadow on board
-      ctx.fillStyle='rgba(40,30,20,0.2)';
-      ctx.beginPath(); ctx.ellipse(s.x+4, s.y+s.h*0.45, s.w*0.45, 8, 0.2,0,Math.PI*2); ctx.fill();
-      let sw=s.w, sh=s.h, sc=1;
-      if(s.rating==='thin'){ sh*=0.55; ctx.globalAlpha=alpha*0.72; }
+      ctx.fillStyle='rgba(40,30,20,0.28)';
+      ctx.beginPath(); ctx.ellipse(s.x+5, s.y+s.h*0.5, s.w*0.48, 9, 0.2,0,Math.PI*2); ctx.fill();
+      let sw=s.w, sh=s.h;
+      if(s.rating==='thin'){ sh*=0.55; ctx.globalAlpha=alpha*0.82; }
       if(s.rating==='thick'){ sh*=1.25; sw*=1.05; }
       drawSashimiFlesh(s.x,s.y,sw,sh,s.rot,t,{r:10, lines:s.rating==='thin'?3:6, cutFace:'left', bend:s.jagged?2:0});
       if(s.jagged){
@@ -672,7 +949,6 @@ canvas#game.grabbing{cursor:grabbing}
       ctx.globalAlpha=1;
     }
 
-    // cut flash / juice
     if(fx.cutFlash>0){
       ctx.fillStyle=`rgba(255,255,255,${fx.cutFlash*0.25})`;
       ctx.fillRect(0,0,W,H);
@@ -681,22 +957,17 @@ canvas#game.grabbing{cursor:grabbing}
 
   function drawHangiri(){
     const cx=W*0.42, cy=H*0.48;
-    drawWaterBowl(W*0.78, H*0.22, true);
-    // tub
-    ctx.fillStyle='rgba(60,40,20,0.15)';
-    ctx.beginPath(); ctx.ellipse(cx+4, cy+55, 105, 26,0,0,Math.PI*2); ctx.fill();
-    // outer wood
+    drawWaterBowl(W*0.78, H*0.22);
+    ctx.fillStyle='rgba(40,25,12,0.18)';
+    ctx.beginPath(); ctx.ellipse(cx+6, cy+62, 108, 22,0,0,Math.PI*2); ctx.fill();
     ctx.beginPath(); ctx.ellipse(cx, cy+40, 100, 28,0,0,Math.PI*2);
     ctx.fillStyle='#a67c52'; ctx.fill();
-    // wall
     const wall=ctx.createLinearGradient(cx-100,cy,cx+100,cy);
-    wall.addColorStop(0,'#b8956a'); wall.addColorStop(0.5,'#d4b896'); wall.addColorStop(1,'#a67c52');
+    wall.addColorStop(0,'#9a7348'); wall.addColorStop(0.45,'#d4b896'); wall.addColorStop(1,'#8a643c');
     ctx.beginPath(); ctx.ellipse(cx, cy-5, 96, 52,0,0,Math.PI*2); ctx.fillStyle=wall; ctx.fill();
-    // copper bands
     ctx.strokeStyle='#c9a227'; ctx.lineWidth=3;
     ctx.beginPath(); ctx.ellipse(cx, cy+18, 98, 24,0,0,Math.PI*2); ctx.stroke();
     ctx.beginPath(); ctx.ellipse(cx, cy+32, 100, 26,0,0,Math.PI*2); ctx.stroke();
-    // interior rice bed
     if(!rice.bedCanvas) buildHangiriBed();
     ctx.save();
     ctx.beginPath(); ctx.ellipse(cx, cy-8, 78, 36,0,0,Math.PI*2); ctx.clip();
@@ -704,58 +975,66 @@ canvas#game.grabbing{cursor:grabbing}
     ctx.restore();
     ctx.beginPath(); ctx.ellipse(cx, cy-8, 78, 36,0,0,Math.PI*2);
     ctx.strokeStyle='rgba(120,90,50,0.35)'; ctx.lineWidth=2; ctx.stroke();
+    ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.ellipse(cx, cy-18, 62, 20,0,0,Math.PI); ctx.stroke();
 
-    // growing hand mound
     let amt=state.riceAmount;
     if(state.riceHolding) amt=Math.min(1,(performance.now()-state.riceHoldStart)/1800);
     syncMoundGrains(amt);
-    // animate fly-in
     for(const g of rice.mound){
       if(g.fly>0){ g.fly=Math.max(0,g.fly-0.08); g.x=lerp(g.x,g.ox,0.18); g.y=lerp(g.y,g.oy,0.18); }
       else { g.x=g.ox; g.y=g.oy; }
     }
     if(amt>0.02){
       const sorted=rice.mound.slice().sort((a,b)=>a.y-b.y);
-      ctx.fillStyle='rgba(40,30,20,0.12)';
-      ctx.beginPath(); ctx.ellipse(cx, cy-18, 20+amt*30, 10+amt*8,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='rgba(40,30,20,0.16)';
+      ctx.beginPath(); ctx.ellipse(cx+2, cy-12, 20+amt*30, 10+amt*8,0,0,Math.PI*2); ctx.fill();
       for(const g of sorted) drawGrainAt(g, cx, cy-20, 1, false);
-      // faint hand under mound while holding
       if(state.riceHolding){
         drawHand(cx-28, cy-8, 0.55, -0.2, true);
         drawHand(cx+28, cy-8, 0.55, 0.2, false);
       }
     }
     ctx.fillStyle='rgba(0,0,0,0.45)'; ctx.font='13px sans-serif'; ctx.textAlign='center';
-    ctx.fillText(state.wetHands?'按住木桶抓饭':'请先湿手！', cx, cy+90);
-    if(state.stickyPenalty){ ctx.fillStyle='#c45c48'; ctx.fillText('手粘饭了…', cx, cy+108); }
+    ctx.fillText(state.wetHands?'按住木桶抓饭':'请先湿手～', cx, cy+90);
+    if(state.stickyPenalty){ ctx.fillStyle='#e07050'; ctx.fillText('下次先点水就更好啦', cx, cy+108); }
   }
 
   function drawHand(x,y,scale,rot,left){
     ctx.save();
     ctx.translate(x,y); ctx.rotate(rot||0); ctx.scale(left?-scale:scale, scale);
-    // palm
-    ctx.fillStyle='#f0c9a8';
+    ctx.fillStyle='rgba(40,25,15,0.18)';
+    roundRect(-14,-6,32,28,12); ctx.fill();
+    const palm=ctx.createLinearGradient(0,-12,4,22);
+    palm.addColorStop(0,'#fbe0c4');
+    palm.addColorStop(0.55,'#f0c9a8');
+    palm.addColorStop(1,'#dca07c');
+    ctx.fillStyle=palm;
     roundRect(-16,-10,32,28,12); ctx.fill();
-    // fingers
     for(let i=0;i<4;i++){
       const fx0=-12+i*8;
-      roundRect(fx0-4, -28, 7, 22, 3); ctx.fill();
+      ctx.fillStyle='rgba(40,25,15,0.1)';
+      roundRect(fx0-3.2, -25, 7, 20, 3); ctx.fill();
+      const fg=ctx.createLinearGradient(fx0, -28, fx0, -6);
+      fg.addColorStop(0,'#fbe0c4'); fg.addColorStop(1,'#e8b494');
+      ctx.fillStyle=fg;
+      roundRect(fx0-4, -28, 7, 22, 3.5); ctx.fill();
     }
-    // thumb
+    ctx.fillStyle='#f0c9a8';
     ctx.beginPath(); ctx.ellipse(-18,2,7,5, -0.5,0,Math.PI*2); ctx.fill();
-    // soft shade
-    ctx.fillStyle='rgba(160,100,70,0.2)';
-    roundRect(-12,0,24,12,6); ctx.fill();
+    ctx.fillStyle='rgba(255,180,170,0.35)';
+    ctx.beginPath(); ctx.ellipse(-6,6,5,3.5,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='rgba(160,90,60,0.18)';
+    roundRect(-12,2,24,12,6); ctx.fill();
     ctx.restore();
   }
 
   function drawShaping(){
     const cx=W/2, cy=H*0.48;
     drawMat(cx, cy+20, 210, 130);
-    drawWaterBowl(W*0.82, H*0.16, false);
+    drawWaterBowl(W*0.82, H*0.16);
 
     if(!rice.pile.length) buildPileFromRice();
-    // morph target from taps
     const taps=state.shapeTaps;
     let mt=0;
     if(taps<=0) mt=0;
@@ -766,13 +1045,11 @@ canvas#game.grabbing{cursor:grabbing}
     applyMorphToPile(rice.morph);
     drawGrainPile(cx, cy, rice.pile, 1);
 
-    // press ripples
     for(const r of fx.pressRipples){
       ctx.strokeStyle=`rgba(255,255,255,${r.life*0.35})`; ctx.lineWidth=2;
       ctx.beginPath(); ctx.ellipse(cx,cy,20+r.r,12+r.r*0.5,0,0,Math.PI*2); ctx.stroke();
     }
 
-    // hands animation
     if(fx.hands.active || fx.hands.press>0.01){
       const p=fx.hands.press;
       const lift=lerp(50, 0, p);
@@ -780,26 +1057,26 @@ canvas#game.grabbing{cursor:grabbing}
       drawHand(cx-spread, cy-8-lift, 0.85, -0.15+p*0.1, true);
       drawHand(cx+spread, cy-8-lift, 0.85, 0.15-p*0.1, false);
     } else if(state.step==='shape'){
-      // idle hint hands above
       const bob=Math.sin(fx.idle*2)*4;
-      ctx.globalAlpha=0.35;
+      ctx.globalAlpha=0.4;
       drawHand(cx-55, cy-40+bob, 0.55, -0.25, true);
       drawHand(cx+55, cy-40+bob, 0.55, 0.25, false);
       ctx.globalAlpha=1;
     }
 
-    // wasabi
     if(state.wasabiAmount>0 && state.step!=='shape'){
+      ctx.fillStyle='rgba(40,60,10,0.18)';
+      ctx.beginPath(); ctx.ellipse(cx+1, cy-3, 6+state.wasabiAmount*12, 4+state.wasabiAmount*5, 0,0,Math.PI*2); ctx.fill();
       ctx.beginPath();
       ctx.ellipse(cx, cy-6, 5+state.wasabiAmount*12, 3+state.wasabiAmount*5, 0,0,Math.PI*2);
       const wg=ctx.createRadialGradient(cx-2,cy-8,1,cx,cy-6,14);
-      wg.addColorStop(0,'#c5e86a'); wg.addColorStop(1,'#6a9b2a');
+      wg.addColorStop(0,'#d4f08a'); wg.addColorStop(0.55,'#8bc34a'); wg.addColorStop(1,'#5a8a22');
       ctx.fillStyle=wg; ctx.fill();
     }
 
     ctx.fillStyle='rgba(0,0,0,0.4)'; ctx.font='13px sans-serif'; ctx.textAlign='center';
     if(state.step==='shape'){
-      const label=taps===0?'点击双手捏饭': taps<3?'还太松…': taps<=6?'紧实度不错': '要成石头了！';
+      const label=taps===0?'点「捏一捏」或点饭团': taps<3?'还软软的～': taps<=6?'太棒了，形状刚好': '有点扁了哦';
       ctx.fillText(`${label}  ×${taps}`, cx, cy+95);
     } else {
       ctx.fillText('左右滑动抹芥末', cx, cy+95);
@@ -819,19 +1096,51 @@ canvas#game.grabbing{cursor:grabbing}
     rice.morphTarget=0.55; applyMorphToPile(rice.morph);
     drawGrainPile(cx, cy+10, rice.pile, 0.72);
     if(state.noriWrapped){
+      ctx.fillStyle='rgba(0,0,0,0.22)';
+      roundRect(cx-36, cy-24, 76, 58, 5); ctx.fill();
+      const ng=ctx.createLinearGradient(cx-38,cy-28,cx+38,cy+30);
+      ng.addColorStop(0,'#244a34'); ng.addColorStop(0.5,'#1a3a28'); ng.addColorStop(1,'#0e2418');
       roundRect(cx-38, cy-28, 76, 58, 5);
-      ctx.fillStyle='#1a3a28'; ctx.fill();
-      // grainy top
+      ctx.fillStyle=ng; ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,0.12)'; ctx.stroke();
       const rng=mulberry32(9);
       for(let i=0;i<40;i++){
         const g=makeGrain(rng,(rng()-0.5)*40,(rng()-0.5)*14,0);
         drawGrainAt(g,cx,cy-6,0.85,false);
       }
     } else {
+      ctx.fillStyle='rgba(0,0,0,0.18)';
+      roundRect(cx+72, cy-36, 50, 70, 3); ctx.fill();
       roundRect(cx+70, cy-40, 50, 70, 3);
-      ctx.fillStyle='#1a3a28'; ctx.fill();
+      const ng=ctx.createLinearGradient(cx+70,cy-40,cx+120,cy+30);
+      ng.addColorStop(0,'#244a34'); ng.addColorStop(1,'#0e2418');
+      ctx.fillStyle=ng; ctx.fill();
       ctx.fillStyle='rgba(0,0,0,0.4)'; ctx.font='13px sans-serif'; ctx.textAlign='center';
       ctx.fillText('点下方按钮包海苔', cx, cy+95);
+    }
+  }
+
+  function drawSprinkles(cx, cy, w, h){
+    const rng=mulberry32(77+((cx*10)|0)+state.pieceIndex*13);
+    if(state.sprinkleSesame){
+      for(let i=0;i<18;i++){
+        const sx=cx+(rng()-0.5)*w, sy=cy+(rng()-0.5)*h;
+        ctx.save(); ctx.translate(sx,sy); ctx.rotate(rng()*Math.PI);
+        ctx.fillStyle=rng()>0.45?'#5a3a22':'#f3e0b8';
+        ctx.beginPath(); ctx.ellipse(0,0,1.7,1.05,0,0,Math.PI*2); ctx.fill();
+        ctx.restore();
+      }
+    }
+    if(state.sprinkleNori){
+      ctx.fillStyle='#1a3a28';
+      for(let i=0;i<12;i++){
+        const sx=cx+(rng()-0.5)*w, sy=cy+(rng()-0.5)*h, rot=rng()*Math.PI;
+        ctx.save(); ctx.translate(sx,sy); ctx.rotate(rot);
+        ctx.globalAlpha=0.85;
+        ctx.fillRect(-2.5,-0.8,5,1.6);
+        ctx.restore();
+      }
+      ctx.globalAlpha=1;
     }
   }
 
@@ -840,9 +1149,12 @@ canvas#game.grabbing{cursor:grabbing}
     drawMat(cx, cy+20, 220, 140);
     const t=state.topping;
     if(t.gunkan){
+      ctx.fillStyle='rgba(0,0,0,0.22)';
+      roundRect(cx-36, cy-8, 76, 54, 5); ctx.fill();
+      const ng=ctx.createLinearGradient(cx-38,cy-12,cx+38,cy+42);
+      ng.addColorStop(0,'#244a34'); ng.addColorStop(1,'#0e2418');
       roundRect(cx-38, cy-12, 76, 54, 5);
-      ctx.fillStyle='#1a3a28'; ctx.fill();
-      // rice inside
+      ctx.fillStyle=ng; ctx.fill();
       const rng=mulberry32(21);
       for(let i=0;i<35;i++){
         const g=makeGrain(rng,(rng()-0.5)*36,(rng()-0.5)*10,0);
@@ -853,30 +1165,34 @@ canvas#game.grabbing{cursor:grabbing}
         if(t.id==='ikura'||t.id==='tobiko'){
           for(let i=0;i<Math.floor(amt*18);i++){
             const a=i*1.7; const rr=4+(i%3);
-            ctx.beginPath();
-            ctx.arc(cx+Math.cos(a)*14*(0.3+amt), cy-8-amt*12+Math.sin(a)*8, rr,0,Math.PI*2);
-            const rg=ctx.createRadialGradient(0,0,1,0,0,rr);
-            ctx.fillStyle=shade(t.color,(i%2)*20); ctx.fill();
-            ctx.fillStyle='rgba(255,255,255,0.35)';
-            ctx.beginPath(); ctx.arc(cx+Math.cos(a)*14*(0.3+amt)-1.5, cy-8-amt*12+Math.sin(a)*8-1.5, rr*0.3,0,Math.PI*2); ctx.fill();
+            const px=cx+Math.cos(a)*14*(0.3+amt), py=cy-8-amt*12+Math.sin(a)*8;
+            ctx.fillStyle='rgba(40,10,0,0.2)';
+            ctx.beginPath(); ctx.arc(px+1,py+2,rr,0,Math.PI*2); ctx.fill();
+            const rg=ctx.createRadialGradient(px-1,py-1,1,px,py,rr);
+            rg.addColorStop(0, shade(t.color,30)); rg.addColorStop(1, shade(t.color,-15));
+            ctx.fillStyle=rg;
+            ctx.beginPath(); ctx.arc(px,py,rr,0,Math.PI*2); ctx.fill();
+            ctx.fillStyle='rgba(255,255,255,0.4)';
+            ctx.beginPath(); ctx.arc(px-1.5, py-1.5, rr*0.3,0,Math.PI*2); ctx.fill();
           }
         } else if(t.id==='uni'){
           drawSashimiFlesh(cx, cy-8-amt*10, 40, 16+amt*14, 0.1, t, {r:8, lines:3});
         } else {
-          // negitoro
+          ctx.fillStyle='rgba(40,10,15,0.18)';
+          ctx.beginPath(); ctx.ellipse(cx+1, cy-2-amt*12, 24, 8+amt*14,0,0,Math.PI*2); ctx.fill();
           ctx.beginPath(); ctx.ellipse(cx, cy-5-amt*12, 24, 8+amt*14,0,0,Math.PI*2);
           ctx.fillStyle=t.color; ctx.fill();
           ctx.fillStyle='#7cb342';
           for(let i=0;i<amt*8;i++){ ctx.fillRect(cx-15+i*5, cy-10-amt*10, 2, 6); }
         }
       }
-      // spill particles
+      drawSprinkles(cx, cy-8, 50, 28);
       for(const p of fx.spillParts){
         ctx.fillStyle=t.color; ctx.globalAlpha=p.life;
         ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
         ctx.globalAlpha=1;
       }
-      if(state.spilled){ ctx.fillStyle='rgba(196,92,72,0.85)'; ctx.font='12px sans-serif'; ctx.textAlign='center'; ctx.fillText('洒出来了…', cx, cy+88); }
+      if(state.spilled){ ctx.fillStyle='rgba(224,112,80,0.9)'; ctx.font='12px sans-serif'; ctx.textAlign='center'; ctx.fillText('有点满出来啦，再试一次就更棒', cx, cy+88); }
       else { ctx.fillStyle='rgba(0,0,0,0.4)'; ctx.font='13px sans-serif'; ctx.textAlign='center'; ctx.fillText('按住舀入 · 松手完成', cx, cy+90); }
     } else {
       if(!rice.pile.length) buildPileFromRice();
@@ -889,53 +1205,123 @@ canvas#game.grabbing{cursor:grabbing}
       const ax=state.toppingPlaced?(state.toppingAligned-0.5)*40:0;
       let tx=state.toppingPlaced?cx+ax:(state.dragging&&state.lastPointer?state.lastPointer.x:cx+80);
       let ty=state.toppingPlaced?cy-8:(state.dragging&&state.lastPointer?state.lastPointer.y:cy-55);
-      // soft shadow height
       const lift=state.toppingPlaced?2:18;
-      ctx.fillStyle=`rgba(30,40,60,${0.12+lift*0.008})`;
-      ctx.beginPath(); ctx.ellipse(tx+2, cy+18, 40, 10,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=`rgba(30,40,60,${0.14+lift*0.008})`;
+      ctx.beginPath(); ctx.ellipse(tx+3, cy+20, 42, 11,0,0,Math.PI*2); ctx.fill();
       const bend=state.draped? 1.5 : (state.drapeT||0)*1.5;
       const sc=state.draped?1:0.92;
-      let ratingW=88, ratingH=34;
-      drawSashimiFlesh(tx,ty,ratingW*sc,ratingH*sc,0,t,{r:12, lines:6, bend});
+      drawSashimiFlesh(tx,ty,88*sc,34*sc,0,t,{r:12, lines:6, bend});
+      if(state.toppingPlaced) drawSprinkles(tx, ty, 70, 22);
       if(!state.toppingPlaced){
-        ctx.strokeStyle='rgba(100,220,140,0.7)'; ctx.setLineDash([5,4]); ctx.lineWidth=2;
-        ctx.beginPath(); ctx.ellipse(cx, cy-5, 52, 28,0,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
+        ctx.strokeStyle='rgba(100,220,140,0.75)'; ctx.setLineDash([5,4]); ctx.lineWidth=2.4;
+        ctx.beginPath(); ctx.ellipse(cx, cy-5, 70, 36,0,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
       }
       ctx.fillStyle='rgba(0,0,0,0.4)'; ctx.font='13px sans-serif'; ctx.textAlign='center';
-      ctx.fillText(state.toppingPlaced?(state.draped?'贴合完成 · 去摆盘':'滑动一下贴合鱼片'):'拖到绿色框内', cx, cy+98);
+      ctx.fillText(state.toppingPlaced?(state.draped?'贴合完成 · 去摆盘':'滑动一下贴合鱼片'):'拖到绿色圈里', cx, cy+98);
+    }
+  }
+
+  function drawPlateBody(cx, cy, style){
+    ctx.fillStyle='rgba(40,25,12,0.22)';
+    ctx.beginPath(); ctx.ellipse(cx+4, cy+28, 112, 28, 0,0,Math.PI*2); ctx.fill();
+    let outer, inner, rim;
+    if(style==='black'){
+      outer=ctx.createLinearGradient(cx,cy-44,cx,cy+48);
+      outer.addColorStop(0,'#3a3a42'); outer.addColorStop(0.5,'#1a1a1e'); outer.addColorStop(1,'#0c0c10');
+      inner=ctx.createRadialGradient(cx-20,cy-16,8,cx,cy,100);
+      inner.addColorStop(0,'#4a4a52'); inner.addColorStop(1,'#16161a');
+      rim='rgba(255,255,255,0.28)';
+    } else if(style==='white'){
+      outer=ctx.createLinearGradient(cx,cy-44,cx,cy+48);
+      outer.addColorStop(0,'#ffffff'); outer.addColorStop(0.6,'#f2eee8'); outer.addColorStop(1,'#d8d0c6');
+      inner=ctx.createRadialGradient(cx-16,cy-12,8,cx,cy,100);
+      inner.addColorStop(0,'#ffffff'); inner.addColorStop(1,'#e6dfd4');
+      rim='rgba(255,255,255,0.8)';
+    } else {
+      outer=ctx.createLinearGradient(cx,cy-44,cx,cy+48);
+      outer.addColorStop(0,'#e8cda8'); outer.addColorStop(0.55,'#d4b896'); outer.addColorStop(1,'#a67c52');
+      inner=ctx.createLinearGradient(cx,cy-30,cx,cy+30);
+      inner.addColorStop(0,'#f0d8b4'); inner.addColorStop(1,'#c4a074');
+      rim='rgba(255,240,220,0.45)';
+    }
+    roundRect(cx-112, cy-42, 224, 92, 46);
+    ctx.fillStyle=outer; ctx.fill();
+    ctx.save();
+    ctx.beginPath(); roundRect(cx-100, cy-32, 200, 70, 36); ctx.clip();
+    ctx.fillStyle=inner; ctx.fillRect(cx-100, cy-32, 200, 70);
+    ctx.fillStyle='rgba(0,0,0,0.08)';
+    ctx.beginPath(); ctx.ellipse(cx, cy+18, 86, 16, 0,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle=rim; ctx.lineWidth=2;
+    roundRect(cx-100, cy-32, 200, 70, 36); ctx.stroke();
+    if(style==='wood'){
+      ctx.fillStyle='#8b6914';
+      roundRect(cx-90, cy+48, 30, 14, 3); ctx.fill();
+      roundRect(cx+60, cy+48, 30, 14, 3); ctx.fill();
     }
   }
 
   function drawPlate(){
     const cx=W/2, cy=H*0.48;
-    ctx.fillStyle='rgba(60,40,20,0.15)';
-    roundRect(cx-108, cy-36, 220, 95, 10); ctx.fill();
-    roundRect(cx-110, cy-40, 220, 90, 8);
-    const g=ctx.createLinearGradient(cx,cy-40,cx,cy+50);
-    g.addColorStop(0,'#d4b896'); g.addColorStop(1,'#a67c52');
-    ctx.fillStyle=g; ctx.fill();
-    ctx.strokeStyle='rgba(80,50,20,0.3)'; ctx.stroke();
-    ctx.fillStyle='#8b6914';
-    roundRect(cx-90, cy+48, 30, 14, 3); ctx.fill();
-    roundRect(cx+60, cy+48, 30, 14, 3); ctx.fill();
+    drawPlateBody(cx, cy, state.plateStyle||'wood');
     drawMiniNigiri(cx-20, cy, state.topping, 1);
-    if(state.hasGari){ ctx.font='22px serif'; ctx.fillText('🫚', cx+55, cy+5); }
+    drawSprinkles(cx-20, cy-4, 48, 20);
+    if(state.gariAmount>0){
+      const n=state.gariAmount>=2?1.15:0.85;
+      drawGari(cx+58, cy+2, n);
+      if(state.gariAmount>=2) drawGari(cx+78, cy+8, 0.75);
+    }
     state.pieces.slice(-2).forEach((p,i)=>drawMiniNigiri(cx-70+i*25, cy+22, p.topping, 0.55));
   }
 
   function drawMiniNigiri(x,y,t,alpha){
     ctx.save(); ctx.globalAlpha=alpha==null?1:alpha;
+    ctx.fillStyle='rgba(40,25,15,0.16)';
+    ctx.beginPath(); ctx.ellipse(x+2,y+16,20,6,0,0,Math.PI*2); ctx.fill();
     if(t.gunkan){
-      roundRect(x-18,y-12,36,28,3); ctx.fillStyle='#1a3a28'; ctx.fill();
+      const ng=ctx.createLinearGradient(x-18,y-12,x+18,y+16);
+      ng.addColorStop(0,'#244a34'); ng.addColorStop(1,'#0e2418');
+      roundRect(x-18,y-12,36,28,3); ctx.fillStyle=ng; ctx.fill();
       ctx.beginPath(); ctx.ellipse(x,y-8,14,8,0,0,Math.PI*2); ctx.fillStyle=t.color; ctx.fill();
     } else {
-      // mini grains
       const rng=mulberry32(x*10+(t.id?t.id.length:1));
       for(let i=0;i<22;i++){
         const g=makeGrain(rng,(rng()-0.5)*28,(rng()*8)-6,0);
         drawGrainAt(g,x,y+8,0.7,false);
       }
       drawSashimiFlesh(x,y-4,40,16,0,t,{r:7, lines:4});
+    }
+    ctx.restore();
+  }
+
+  function drawSparkItem(s){
+    ctx.save();
+    ctx.globalAlpha=Math.max(0,s.life);
+    ctx.fillStyle=s.col;
+    ctx.translate(s.x,s.y);
+    ctx.rotate(s.rot||0);
+    const z=s.sz*Math.max(0.2,s.life);
+    if(s.kind==='heart'){
+      ctx.beginPath();
+      ctx.moveTo(0, z*0.35);
+      ctx.bezierCurveTo(-z*1.15, -z*0.55, -z*0.45, -z*1.25, 0, -z*0.4);
+      ctx.bezierCurveTo(z*0.45, -z*1.25, z*1.15, -z*0.55, 0, z*0.35);
+      ctx.fill();
+    } else if(s.kind==='star'){
+      ctx.beginPath();
+      for(let i=0;i<10;i++){
+        const r=i%2?z*0.4:z;
+        const a=-Math.PI/2+i*Math.PI/5;
+        if(i===0) ctx.moveTo(Math.cos(a)*r, Math.sin(a)*r);
+        else ctx.lineTo(Math.cos(a)*r, Math.sin(a)*r);
+      }
+      ctx.closePath(); ctx.fill();
+    } else {
+      ctx.rotate(Math.PI/4);
+      ctx.beginPath();
+      ctx.moveTo(0,-z); ctx.lineTo(z*0.22, -z*0.22); ctx.lineTo(z,0); ctx.lineTo(z*0.22,z*0.22);
+      ctx.lineTo(0,z); ctx.lineTo(-z*0.22,z*0.22); ctx.lineTo(-z,0); ctx.lineTo(-z*0.22,-z*0.22);
+      ctx.closePath(); ctx.fill();
     }
     ctx.restore();
   }
@@ -958,16 +1344,12 @@ canvas#game.grabbing{cursor:grabbing}
       case 'topping': drawToppingStep(); break;
       case 'plate': drawPlate(); break;
     }
-    // sparkles overlay
-    for(const s of fx.sparkles){
-      ctx.globalAlpha=s.life; ctx.fillStyle=s.col;
-      ctx.beginPath(); ctx.arc(s.x,s.y,s.sz*s.life,0,Math.PI*2); ctx.fill();
-    }
+    drawSceneMascot();
+    for(const s of fx.sparkles) drawSparkItem(s);
     ctx.globalAlpha=1;
     ctx.restore();
   }
 
-  // ---------- Animation loop ----------
   let lastTs=performance.now();
   function needAnim(){ if(!animRunning){ animRunning=true; requestAnimationFrame(tick); } }
   function tick(ts){
@@ -975,32 +1357,25 @@ canvas#game.grabbing{cursor:grabbing}
     fx.idle+=dt;
     let alive=false;
 
-    // fade
     if(fx.fade<1){ fx.fade=Math.min(1,fx.fade+dt*3); alive=true; }
+    if(fx.mascotCeleb>0){ fx.mascotCeleb=Math.max(0,fx.mascotCeleb-dt); alive=true; }
 
-    // knife trail decay
     for(const tr of fx.knifeTrail){ tr.life-=dt*3; alive=true; }
-    fx.knifeTrail=fx.knifeTrail.filter(t=>t.life>0);
+    fx.knifeTrail=fx.knifeTrail.filter(tr=>tr.life>0);
     if(fx.knifeTrail.length>40) fx.knifeTrail.splice(0, fx.knifeTrail.length-40);
 
-    // sparkles
-    for(const s of fx.sparkles){ s.x+=s.vx; s.y+=s.vy; s.vy+=0.12; s.life-=dt*1.8; alive=true; }
+    for(const s of fx.sparkles){ s.x+=s.vx; s.y+=s.vy; s.vy+=0.12; s.rot+=(s.vr||0); s.life-=dt*1.8; alive=true; }
     fx.sparkles=fx.sparkles.filter(s=>s.life>0);
 
-    // water ripples
     for(const r of fx.waterRipples){ r.r+=dt*40; r.life-=dt*1.2; alive=true; }
     fx.waterRipples=fx.waterRipples.filter(r=>r.life>0);
-
-    // press ripples
     for(const r of fx.pressRipples){ r.r+=dt*50; r.life-=dt*1.5; alive=true; }
     fx.pressRipples=fx.pressRipples.filter(r=>r.life>0);
 
-    // fish squash decay
     if(fx.fishSquash>0){ fx.fishSquash=Math.max(0,fx.fishSquash-dt*2.5); alive=true; }
     if(fx.cutFlash>0){ fx.cutFlash=Math.max(0,fx.cutFlash-dt*2); alive=true; }
     if(fx.screenPulse>0){ fx.screenPulse=Math.max(0,fx.screenPulse-dt*2.2); alive=true; }
 
-    // slice animation
     if(fx.slicing && fx.sliceAnim){
       alive=true;
       const a=fx.sliceAnim;
@@ -1008,7 +1383,6 @@ canvas#game.grabbing{cursor:grabbing}
       fx.fishSquash=Math.sin(fx.slicePhase*Math.PI)*1.2;
       if(fx.slicePhase>=1){
         fx.slicing=false;
-        // spawn separated piece
         const rating=a.rating;
         let w=70,h=28;
         if(rating==='thin'){ w=68; h=16; }
@@ -1018,19 +1392,19 @@ canvas#game.grabbing{cursor:grabbing}
           w,h, alpha:1, life:0, rating, jagged:a.jagged
         };
         fx.cutFlash=1;
-        spawnSparkles(W*0.45, H*0.42, 14, shade(state.topping.color,40));
-        if(rating==='ok' && !a.jagged) fx.screenPulse=1;
-        floatFeedback(({thin:'太薄',ok:'刚好',thick:'太厚'})[rating]+(a.jagged?' · 切口毛糙':''), rating==='ok'?'good':'bad');
+        spawnBurst(W*0.45, H*0.42, rating==='ok'?22:10);
+        if(rating==='ok' && !a.jagged){ fx.screenPulse=1; sfxChime(); celebMascot(); }
+        else sfxPop();
+        const say=rating==='ok'?'太棒了': rating==='thin'?'差一点就好':'再试一次就更棒';
+        floatFeedback(say+(a.jagged && rating==='ok'?' · 还是很棒':''), rating==='ok'?'good':'ok');
       }
     }
 
-    // separated physics
     if(fx.separated){
       alive=true;
       const s=fx.separated; s.life+=dt;
       if(s.life<0.9){
         s.vy+=18*dt; s.x+=s.vx; s.y+=s.vy; s.rot+=s.vr;
-        // land on board
         const landY=H*0.55;
         if(s.y>landY){ s.y=landY; s.vy*=-0.25; s.vx*=0.7; s.vr*=0.5; }
         s.x=lerp(s.x, W*0.78, dt*1.2);
@@ -1041,7 +1415,6 @@ canvas#game.grabbing{cursor:grabbing}
       }
     }
 
-    // hands press
     if(fx.hands.active){
       alive=true;
       fx.hands.t+=dt;
@@ -1051,18 +1424,14 @@ canvas#game.grabbing{cursor:grabbing}
       else { fx.hands.active=false; fx.hands.press=0; }
     }
 
-    // pile springs
     if(rice.pile.length && (state.step==='shape'||state.step==='wasabi'||state.step==='topping'||state.step==='wrap')){
-      const before=rice.morph;
       stepPileSprings(dt);
       if(Math.abs(rice.morph-rice.morphTarget)>0.002) alive=true;
       else if(rice.pile.some(g=>Math.abs(g.x-g.tx)+Math.abs(g.y-g.ty)>0.05)) alive=true;
     }
 
-    // rice holding
     if(state.riceHolding){ alive=true; state.riceAmount=Math.min(1,(performance.now()-state.riceHoldStart)/1800); }
 
-    // scoop
     if(state._scooping){
       alive=true;
       state.scoopAmount=Math.min(1.2, state.scoopAmount+dt*0.55);
@@ -1076,15 +1445,12 @@ canvas#game.grabbing{cursor:grabbing}
     for(const p of fx.spillParts){ p.x+=p.vx; p.y+=p.vy; p.vy+=0.25; p.life-=dt*0.8; alive=true; }
     fx.spillParts=fx.spillParts.filter(p=>p.life>0);
 
-    // flying sticky grains
     for(const g of fx.flyingGrains){ g.x+=g.vx; g.y+=g.vy; g.vy+=0.2; g.life-=dt; alive=true; }
     fx.flyingGrains=fx.flyingGrains.filter(g=>g.life>0);
 
-    // idle bob on shape
-    if(state.step==='shape'||state.step==='slice'||state.step==='rice') alive=true;
+    if(state.step==='shape'||state.step==='slice'||state.step==='rice'||state.step==='plate') alive=true;
 
     draw();
-    // draw flying grains overlay
     for(const g of fx.flyingGrains){
       ctx.save(); ctx.globalAlpha=g.life; ctx.translate(g.x,g.y); ctx.rotate(g.rot);
       ctx.fillStyle=g.col; ctx.beginPath(); ctx.ellipse(0,0,g.len/2,g.wid/2,0,0,Math.PI*2); ctx.fill(); ctx.restore();
@@ -1094,15 +1460,22 @@ canvas#game.grabbing{cursor:grabbing}
     else animRunning=false;
   }
 
-  // ---------- Game flow (preserved) ----------
-  function updateCollectedHint(){ $('#collected-count').textContent=`已收集称号 ${collectedTitles.length} / ${ALL_TITLES.length}`; }
+  function stickerName(id){
+    const d=STICKER_DEFS.find(s=>s.id===id);
+    return d?d.name:id;
+  }
+  function uniqueStickerCount(){ return Object.keys(collectedStickers).length; }
+
+  function updateCollectedHint(){
+    $('#collected-count').textContent=`已收集称号 ${collectedTitles.length} / ${ALL_TITLES.length}  ·  贴纸 ${uniqueStickerCount()} 种`;
+  }
 
   function renderToppingGrid(){
     const grid=$('#topping-grid'); grid.innerHTML='';
     TOPPINGS.forEach(t=>{
       const card=document.createElement('div'); card.className='topping-card';
       card.innerHTML=`<div class="emoji">${t.emoji}</div><div class="name">${t.name}</div>${t.gunkan?'<span class="tag">军舰</span>':''}`;
-      card.addEventListener('click',()=>startPiece(t));
+      card.addEventListener('click',()=>{ sfxPop(); startPiece(t); });
       grid.appendChild(card);
     });
   }
@@ -1115,6 +1488,7 @@ canvas#game.grabbing{cursor:grabbing}
       shapeTaps:0, firmness:null, wasabiAmount:0, wasabiStrokes:0,
       noriWrapped:false, scoopAmount:0, spilled:false,
       toppingPlaced:false, toppingAligned:0.5, draped:false, drapeT:0, hasGari:false,
+      gariAmount:0, plateStyle:'wood', sprinkleSesame:false, sprinkleNori:false,
       dragging:false, dragStart:null, _scooping:false,
     });
     rice.mound=[]; rice.pile=[]; rice.morph=0; rice.morphTarget=0;
@@ -1133,6 +1507,7 @@ canvas#game.grabbing{cursor:grabbing}
     $('#hud-topping').textContent=state.topping?state.topping.emoji+' '+state.topping.name:'';
     $('#hud-step').textContent=STEPS[state.step]||state.step;
     $('#btn-finish-early').style.display=state.pieces.length>0?'block':'none';
+    syncMascotClass();
   }
 
   function renderBoardBar(){
@@ -1148,52 +1523,57 @@ canvas#game.grabbing{cursor:grabbing}
   }
 
   function updateHint(){
-    const hints={
-      slice:'向下滑动切鱼片 · 松手完成一切 · 锯切会毛糙',
-      wet:'先点「湿手」，再去抓饭',
-      rice:'按住木桶抓饭 · 按越久饭越多 · 军舰饭量要少一点',
-      shape:'点击饭团捏紧 · 双手会压下去 · 捏几下就好',
-      wasabi:'在饭上左右滑动抹芥末 · 可跳过',
-      wrap:'点击包上海苔',
-      topping: state.topping&&state.topping.gunkan?'按住舀入食材 · 太多会洒出来':'把食材拖到饭上 · 再轻轻滑动贴合',
-      plate:'点击摆上木盘 · 可加点姜片装饰',
-    };
-    $('#stage-hint').textContent=hints[state.step]||'';
+    let speech=STEP_SPEECH[state.step]||'';
+    if(state.step==='topping' && state.topping && state.topping.gunkan) speech='按住往军舰里舀，满满的就松手～';
+    if(state.step==='plate') speech='换盘子、加点寿司姜，还可以撒芝麻或海苔碎';
+    $('#helper-speech').textContent=speech;
     $('#stage-tip').textContent=STEP_TIPS[state.step]||'';
+    syncMascotClass();
   }
 
   function renderControls(){
     const c=$('#controls'); c.innerHTML='';
     const add=(label,cls,fn)=>{ const b=document.createElement('button'); b.className='btn '+cls; b.textContent=label; b.addEventListener('click',fn); c.appendChild(b); return b; };
     if(state.step==='wet'||(state.step==='rice'&&!state.wetHands)){
-      add(state.wetHands?'✓ 已湿手':'💧 湿手','btn-wet'+(state.wetHands?' active':''),()=>{
+      add(state.wetHands?'✓ 已湿手':'💧 湿手','btn-wet btn-lg'+(state.wetHands?' active':''),()=>{
         state.wetHands=true;
         fx.waterRipples.push({r:0,life:1},{r:4,life:0.8});
-        spawnSparkles(W*0.78,H*0.22,8,'#c8e8f8');
+        spawnBurst(W*0.78,H*0.22,12);
+        sfxPop(); celebMascot();
         if(state.step==='wet'){ state.step='rice'; updateHUD(); updateHint(); }
         renderControls(); floatFeedback('手润润的～','good'); needAnim();
       });
+    }
+    if(state.step==='shape'){
+      add('✊ 捏一捏','btn-action btn-lg',()=>{ doShapeTap(); });
+      add('下一步 · 芥末','btn-secondary',()=>{ rateFirmness(); state.step='wasabi'; updateHUD(); updateHint(); renderControls(); fx.fade=0.4; needAnim(); });
     }
     if(state.step==='wasabi'){
       add('跳过芥末','btn-secondary',()=>{ state.wasabiAmount=0; goAfterWasabi(); });
     }
     if(state.step==='wrap'){
-      add('🌿 包海苔','btn-action',()=>{
+      add('🌿 包海苔','btn-action btn-lg',()=>{
         state.noriWrapped=true; state.step='topping'; updateHUD(); updateHint(); renderControls();
-        floatFeedback('海苔包好了','good'); fx.fade=0.4; needAnim();
+        floatFeedback('海苔包好了','good'); sfxPop(); spawnBurst(W/2,H*0.4,12); celebMascot(); fx.fade=0.4; needAnim();
       });
-    }
-    if(state.step==='plate'){
-      if(!state.hasGari) add('🫚 加点姜','btn-secondary',()=>{ state.hasGari=true; floatFeedback('姜片点缀','good'); toast('📚 姜片用来清口，换下一块鱼时吃'); renderControls(); needAnim(); });
-      add('✓ 完成这贯','btn-primary', finishPiece);
-    }
-    if(state.step==='shape'){
-      add('下一步 · 芥末','btn-action',()=>{ rateFirmness(); state.step='wasabi'; updateHUD(); updateHint(); renderControls(); fx.fade=0.4; needAnim(); });
     }
     if(state.step==='topping' && !state.topping.gunkan && state.toppingPlaced){
       add(state.draped?'去摆盘 →':'跳过贴合 · 摆盘','btn-action',()=>{
         state.step='plate'; updateHUD(); updateHint(); renderControls(); fx.fade=0.4; needAnim();
       });
+    }
+    if(state.step==='plate'){
+      const row=document.createElement('div'); row.className='diy-row';
+      const diy=(label,on,fn)=>{ const b=document.createElement('button'); b.className='btn btn-diy'+(on?' on':''); b.textContent=label; b.addEventListener('click',fn); row.appendChild(b); };
+      diy('木盘', state.plateStyle==='wood', ()=>{ state.plateStyle='wood'; renderControls(); needAnim(); });
+      diy('黑瓷', state.plateStyle==='black', ()=>{ state.plateStyle='black'; renderControls(); needAnim(); });
+      diy('白瓷', state.plateStyle==='white', ()=>{ state.plateStyle='white'; renderControls(); needAnim(); });
+      diy('寿司姜 一点', state.gariAmount===1, ()=>{ state.gariAmount=state.gariAmount===1?0:1; state.hasGari=state.gariAmount>0; if(state.hasGari){ floatFeedback('加点姜片','good'); sfxPop(); } renderControls(); needAnim(); });
+      diy('寿司姜 多一点', state.gariAmount>=2, ()=>{ state.gariAmount=state.gariAmount>=2?0:2; state.hasGari=state.gariAmount>0; if(state.hasGari){ floatFeedback('姜片点缀','good'); sfxPop(); } renderControls(); needAnim(); });
+      diy('芝麻', !!state.sprinkleSesame, ()=>{ state.sprinkleSesame=!state.sprinkleSesame; if(state.sprinkleSesame) sfxPop(); renderControls(); needAnim(); });
+      diy('海苔碎', !!state.sprinkleNori, ()=>{ state.sprinkleNori=!state.sprinkleNori; if(state.sprinkleNori) sfxPop(); renderControls(); needAnim(); });
+      c.appendChild(row);
+      add('✓ 完成这贯','btn-primary btn-lg', finishPiece);
     }
   }
 
@@ -1207,46 +1587,50 @@ canvas#game.grabbing{cursor:grabbing}
     const cut=state.sliceCuts[state.sliceCuts.length-1];
     const len=Math.abs(cut.dy||80);
     state.sliceJagged=state.sliceCuts.length>1||cut.jagged;
-    if(len<50) state.sliceRating='thin';
-    else if(len>160) state.sliceRating='thick';
+    if(len<30) state.sliceRating='thin';
+    else if(len>200) state.sliceRating='thick';
     else state.sliceRating='ok';
   }
   function rateRice(){
     const ideal=state.topping.gunkan?0.35:0.55;
-    if(state.riceAmount<ideal-0.18) state.riceRating='little';
-    else if(state.riceAmount>ideal+0.22) state.riceRating='much';
+    if(state.riceAmount<ideal-0.28) state.riceRating='little';
+    else if(state.riceAmount>ideal+0.32) state.riceRating='much';
     else state.riceRating='ok';
   }
   function rateFirmness(){
     if(state.shapeTaps<2) state.firmness='loose';
-    else if(state.shapeTaps>8) state.firmness='hard';
+    else if(state.shapeTaps>10) state.firmness='hard';
     else state.firmness='ok';
-    const map={loose:'还太松',ok:'紧实度刚好',hard:'捏得太硬'};
-    floatFeedback(map[state.firmness], state.firmness==='ok'?'good':state.firmness==='loose'?'ok':'bad');
+    const map={loose:'软软的，再轻轻捏更好',ok:'太棒了，刚刚好',hard:'有点扁了，再试一次就更棒'};
+    floatFeedback(map[state.firmness], state.firmness==='ok'?'good':'ok');
+    if(state.firmness==='ok'){ sfxChime(); celebMascot(); }
+    else sfxPop();
   }
 
   function scorePiece(){
-    let cut=70, riceS=70, firm=70, wasabi=80, align=70, plate=70;
-    if(state.topping.gunkan) cut=85;
+    let cut=75, riceS=75, firm=75, wasabi=82, align=75, plate=75;
+    if(state.topping.gunkan) cut=88;
     else {
-      if(state.sliceRating==='ok') cut=state.sliceJagged?72:95;
-      else if(state.sliceRating==='thin') cut=55; else cut=45;
+      if(state.sliceRating==='ok') cut=state.sliceJagged?82:96;
+      else if(state.sliceRating==='thin') cut=70; else cut=68;
     }
-    if(state.riceRating==='ok') riceS=92; else if(state.riceRating==='little') riceS=50; else riceS=48;
-    if(state.stickyPenalty) riceS=Math.max(20, riceS-25);
-    if(state.firmness==='ok') firm=90; else if(state.firmness==='loose') firm=55; else firm=40;
-    if(state.wasabiAmount===0) wasabi=75; else if(state.wasabiAmount<0.35) wasabi=95; else if(state.wasabiAmount<0.7) wasabi=70; else wasabi=35;
-    if(state.topping.gunkan) align=state.spilled?35:(state.scoopAmount>0.2&&state.scoopAmount<0.85?90:55);
-    else { align=40+state.toppingAligned*55; if(state.draped) align=Math.min(100,align+10); }
-    plate=state.hasGari?88:72; if(state.pieces.length>=2) plate+=5;
-    const total=Math.round(cut*0.2+riceS*0.22+firm*0.18+wasabi*0.12+align*0.18+plate*0.1);
-    return {cut, rice:riceS, firm, wasabi, align, plate, total:Math.max(0,Math.min(100,total))};
+    if(state.riceRating==='ok') riceS=94; else if(state.riceRating==='little') riceS=72; else riceS=70;
+    if(state.stickyPenalty) riceS=Math.max(60, riceS-12);
+    if(state.firmness==='ok') firm=93; else if(state.firmness==='loose') firm=74; else firm=70;
+    if(state.wasabiAmount===0) wasabi=80; else if(state.wasabiAmount<0.45) wasabi=96; else if(state.wasabiAmount<0.85) wasabi=80; else wasabi=66;
+    if(state.topping.gunkan) align=state.spilled?62:(state.scoopAmount>0.15&&state.scoopAmount<=1?92:74);
+    else { align=50+state.toppingAligned*50; if(state.draped) align=Math.min(100,align+10); align=Math.max(68, align); }
+    plate=state.hasGari?90:76; if(state.pieces.length>=2) plate+=4;
+    if(state.sprinkleSesame||state.sprinkleNori) plate=Math.min(100, plate+3);
+    let total=Math.round(cut*0.2+riceS*0.22+firm*0.18+wasabi*0.12+align*0.18+plate*0.1);
+    total=Math.round(60+total*0.4);
+    return {cut, rice:riceS, firm, wasabi, align, plate, total:Math.max(62,Math.min(100,total))};
   }
 
   function pickQuirk(scores, pieceStates){
     const quirks=[]; const all=pieceStates; const avg=scores.avg; const last=all[all.length-1];
     if(last){
-      if(last.wasabiAmount>0.7) quirks.push('芥末放太多');
+      if(last.wasabiAmount>0.85) quirks.push('芥末放太多');
       if(last.firmness==='hard') quirks.push('捏得像石头');
       if(last.sliceRating==='thick') quirks.push('切太厚');
       if(last.sliceRating==='thin') quirks.push('切太薄像纸片');
@@ -1254,7 +1638,7 @@ canvas#game.grabbing{cursor:grabbing}
       if(last.riceRating==='little') quirks.push('米饭太少空空的');
       if(last.stickyPenalty) quirks.push('手还粘着饭');
       if(last.spilled) quirks.push('军舰翻船了');
-      if(last.hasGari&&last.scores.total>=85) quirks.push('生姜刺客');
+      if(last.hasGari&&last.scores.total>=85) quirks.push('姜片小达人');
     }
     if(avg>=92&&quirks.length===0) return '传说级握寿司';
     if(avg>=85&&quirks.length===0) return '入口即化';
@@ -1265,22 +1649,62 @@ canvas#game.grabbing{cursor:grabbing}
     return quirks[0];
   }
 
+  function awardStickersForPiece(piece){
+    const got=[];
+    if(!piece.topping.gunkan && piece.sliceRating==='ok' && !piece.sliceJagged) got.push('perfect_cut');
+    if(piece.riceRating==='ok' && piece.firmness==='ok') got.push('rice_ok');
+    if(piece.wasabiAmount>0 && piece.wasabiAmount<0.7) got.push('wasabi_star');
+    if(piece.topping.gunkan && !piece.spilled && piece.scoopAmount>=0.2) got.push('gunkan_star');
+    if(piece.hasGari) got.push('gari_star');
+    if(!got.length || piece.scores.total>=82) got.push('little_chef');
+    if(!got.length) got.push('little_chef');
+    const uniq=[];
+    got.forEach(id=>{ if(!uniq.includes(id)) uniq.push(id); });
+    uniq.forEach(id=>{
+      saveSticker(id);
+      sessionStickers.push(id);
+    });
+    return uniq;
+  }
+
+  function showStickerPop(ids, done){
+    const el=$('#sticker-pop');
+    if(!ids || !ids.length){ if(done) done(); return; }
+    el.innerHTML=ids.map(id=>`<div class="card">${stickerName(id)}</div>`).join('')+'<div class="sub">贴纸收下啦</div>';
+    el.classList.add('show');
+    sfxChime(); celebMascot();
+    spawnBurst(W/2, H*0.4, 20);
+    needAnim();
+    clearTimeout(showStickerPop._t);
+    showStickerPop._t=setTimeout(()=>{ el.classList.remove('show'); el.innerHTML=''; if(done) done(); }, 1200);
+  }
+
   function finishPiece(){
     if(state.step!=='plate'){
       if(!state.sliceRating&&!state.topping.gunkan) rateSlice();
       if(!state.riceRating) rateRice();
       if(!state.firmness) rateFirmness();
     }
+    state.hasGari=state.gariAmount>0;
     const scores=scorePiece();
-    state.pieces.push({
+    const piece={
       topping:state.topping, emoji:state.topping.emoji, scores,
       sliceRating:state.sliceRating, riceRating:state.riceRating, firmness:state.firmness,
       wasabiAmount:state.wasabiAmount, stickyPenalty:state.stickyPenalty, spilled:state.spilled,
-      hasGari:state.hasGari, toppingAligned:state.toppingAligned,
-    });
+      hasGari:state.hasGari, toppingAligned:state.toppingAligned, sliceJagged:state.sliceJagged,
+      scoopAmount:state.scoopAmount,
+      plateStyle:state.plateStyle, gariAmount:state.gariAmount,
+      sprinkleSesame:state.sprinkleSesame, sprinkleNori:state.sprinkleNori,
+    };
+    state.pieces.push(piece);
     state.pieceIndex=state.pieces.length;
-    if(state.pieces.length>=3) showResult();
-    else { toast(`第 ${state.pieces.length} 贯完成！再选食材继续～`); showScreen('pick'); }
+    sfxDing();
+    spawnBurst(W/2, H*0.45, 24);
+    const earned=awardStickersForPiece(piece);
+    showStickerPop(earned, ()=>{
+      if(state.pieces.length>=3) showResult();
+      else { toast(`第 ${state.pieces.length} 贯完成！再选一个食材～`); showScreen('pick'); }
+    });
   }
 
   function showResult(){
@@ -1288,6 +1712,11 @@ canvas#game.grabbing{cursor:grabbing}
     const quirk=pickQuirk({avg}, state.pieces);
     const isNew=saveTitle(quirk); updateCollectedHint();
     $('#score-big').textContent=avg; $('#quirk-title').textContent=quirk;
+    let cheer='完成一盘就是小师傅！再试一次就更棒！';
+    if(avg>=90) cheer='太棒了！这盘寿司香喷喷！';
+    else if(avg>=80) cheer='做得真好，再来一盘吧！';
+    else if(avg>=70) cheer='很棒哦，再试一次就更棒！';
+    $('#result-cheer').textContent=cheer;
     const bd=$('#score-breakdown');
     bd.innerHTML=state.pieces.map((p,i)=>`<div class="row"><span>${i+1}. ${p.topping.name}</span><span>${p.scores.total} 分</span></div>`).join('')+`<div class="row"><span><b>平均</b></span><span><b>${avg}</b></span></div>`;
     const last=state.pieces[state.pieces.length-1].scores;
@@ -1297,12 +1726,25 @@ canvas#game.grabbing{cursor:grabbing}
       <div class="row" style="color:#7a6550"><span>芥末</span><span>${last.wasabi}</span></div>
       <div class="row" style="color:#7a6550"><span>贴合</span><span>${last.align}</span></div>
       <div class="row" style="color:#7a6550"><span>摆盘</span><span>${last.plate}</span></div>`;
+    const wall=$('#sticker-wall');
+    const sess=[];
+    sessionStickers.forEach(id=>{ if(!sess.includes(id)) sess.push(id); });
+    let html='<h3>本盘贴纸墙</h3><div class="sticker-chips">';
+    if(sess.length) html+=sess.map(id=>`<span class="sticker-chip">${stickerName(id)}</span>`).join('');
+    else html+='<div class="sticker-empty">下一盘再收集贴纸吧</div>';
+    html+='</div>';
+    const allIds=Object.keys(collectedStickers);
+    if(allIds.length){
+      html+='<h3 style="margin-top:10px">我的贴纸收藏</h3><div class="sticker-chips">';
+      html+=allIds.map(id=>`<span class="sticker-chip alltime">${stickerName(id)} ×${collectedStickers[id]}</span>`).join('');
+      html+='</div>';
+    }
+    wall.innerHTML=html;
     const box=$('#titles-box');
     box.innerHTML='<div style="margin-bottom:6px;font-weight:700">称号收藏</div>'+collectedTitles.map(t=>`<span class="chip${t===quirk&&isNew?' new':''}">${t}${t===quirk&&isNew?' ✨新':''}</span>`).join('');
     showScreen('result');
   }
 
-  // ---------- Pointer ----------
   function ptr(e){
     const r=canvas.getBoundingClientRect();
     const src=e.touches?e.touches[0]||e.changedTouches[0]:e;
@@ -1312,42 +1754,49 @@ canvas#game.grabbing{cursor:grabbing}
   function startSliceAnim(cut){
     fx.slicing=true;
     fx.slicePhase=0;
-    fx.sliceAnim={ start:performance.now(), dur: cut.jagged?900:720, cutY:cut.t, jagged:cut.jagged, rating:state.sliceRating, dy:cut.dy };
+    fx.sliceAnim={ start:performance.now(), dur: cut.jagged?1400:1100, cutY:cut.t, jagged:cut.jagged, rating:state.sliceRating, dy:cut.dy };
+    sfxWhoosh();
     needAnim();
-    // advance after drama
-    setTimeout(()=>{
+    clearTimeout(startSliceAnim._t);
+    startSliceAnim._t=setTimeout(()=>{
       state.step='wet'; updateHUD(); updateHint(); renderControls(); fx.fade=0.35; needAnim();
-    }, (cut.jagged?900:720)+850);
+    }, (cut.jagged?1400:1100)+1100);
+  }
+
+  function doShapeTap(){
+    state.shapeTaps++;
+    fx.hands.active=true; fx.hands.t=0; fx.hands.press=0;
+    fx.pressRipples.push({r:0,life:1});
+    const taps=state.shapeTaps;
+    let mt=taps<3?0.15+taps*0.1: taps<=6?0.45+(taps-3)*0.08: 0.85+(taps-6)*0.12;
+    rice.morphTarget=mt;
+    if(!rice.pile.length) buildPileFromRice();
+    applyMorphToPile(rice.morph);
+    const msgs=['捏~','再捏','紧一点','太棒了','刚刚好','完美？','轻轻的','有点扁了哦'];
+    floatFeedback(msgs[Math.min(msgs.length-1,taps-1)], taps<=6?'ok':'ok');
+    sfxPop();
+    if(taps>=3 && taps<=6){ spawnBurst(W/2,H*0.48,12); if(taps===4){ sfxChime(); celebMascot(); } }
+    needAnim();
   }
 
   function onDown(e){
     if(state.screen!=='play') return;
     e.preventDefault();
+    unlockAudio();
     if(fx.slicing) return;
     const p=ptr(e);
     state.dragging=true; state.dragStart=p; state.lastPointer=p;
     canvas.classList.add('grabbing');
 
     if(state.step==='rice'){
-      if(!state.wetHands){ state.stickyPenalty=true; floatFeedback('忘了湿手！粘住了','bad'); toast('先点「湿手」再抓饭'); }
+      if(!state.wetHands){ state.stickyPenalty=true; floatFeedback('下次先点水就更好啦','ok'); toast('先点「湿手」再抓饭'); }
       state.riceHolding=true;
       state.riceHoldStart=performance.now()-state.riceAmount*1800;
+      sfxPop();
       needAnim();
     }
     if(state.step==='shape'){
-      state.shapeTaps++;
-      fx.hands.active=true; fx.hands.t=0; fx.hands.press=0;
-      fx.pressRipples.push({r:0,life:1});
-      // morph bump
-      const taps=state.shapeTaps;
-      let mt=taps<3?0.15+taps*0.1: taps<=6?0.45+(taps-3)*0.08: 0.85+(taps-6)*0.12;
-      rice.morphTarget=mt;
-      if(!rice.pile.length) buildPileFromRice();
-      applyMorphToPile(rice.morph);
-      const msgs=['捏~','再捏','紧一点','好','扎实','完美？','小心','石头？'];
-      floatFeedback(msgs[Math.min(msgs.length-1,taps-1)], taps<=6?'ok':'bad');
-      if(taps===4) spawnSparkles(W/2,H*0.48,10,'#fff8e0');
-      needAnim();
+      doShapeTap();
     }
     if(state.step==='topping'&&state.topping.gunkan){ state._scooping=true; needAnim(); }
     needAnim();
@@ -1364,7 +1813,7 @@ canvas#game.grabbing{cursor:grabbing}
     if(state.step==='topping'&&!state.topping.gunkan&&state.toppingPlaced&&!state.draped){
       const dy=Math.abs(p.y-state.dragStart.y), dx=Math.abs(p.x-state.dragStart.x);
       state.drapeT=clamp((dx+dy)/80,0,1);
-      if(dx+dy>40){ state.draped=true; floatFeedback('贴合完美','good'); spawnSparkles(W/2,H*0.42,12,shade(state.topping.color,30)); renderControls(); }
+      if(dx+dy>30){ state.draped=true; floatFeedback('太棒了，贴合啦','good'); spawnBurst(W/2,H*0.42,14); sfxChime(); celebMascot(); renderControls(); }
     }
     needAnim();
   }
@@ -1391,16 +1840,18 @@ canvas#game.grabbing{cursor:grabbing}
       state.riceHolding=false;
       state.riceAmount=Math.min(1,(performance.now()-state.riceHoldStart)/1800);
       rateRice();
-      const map={little:'太少了',ok:'分量刚好',much:'太多了'};
-      floatFeedback(map[state.riceRating], state.riceRating==='ok'?'good':'bad');
+      const map={little:'饭有点少，再抓一点点就更棒',ok:'太棒了，分量刚好',much:'饭有点多啦，下次少一点点'};
+      floatFeedback(map[state.riceRating], state.riceRating==='ok'?'good':'ok');
+      if(state.riceRating==='ok'){ sfxChime(); spawnBurst(W*0.42,H*0.4,12); celebMascot(); }
+      else sfxPop();
       setTimeout(()=>{
         state.step='shape'; buildPileFromRice(); updateHUD(); updateHint(); renderControls(); fx.fade=0.35; needAnim();
       },450);
     }
 
     if(state.step==='wasabi'){
-      if(state.wasabiAmount>0.75) floatFeedback('芥末有点多…','bad');
-      else if(state.wasabiAmount>0) floatFeedback('芥末适量','good');
+      if(state.wasabiAmount>0.85) floatFeedback('芥末有点多，下次少一点就更棒','ok');
+      else if(state.wasabiAmount>0){ floatFeedback('太棒了','good'); sfxChime(); celebMascot(); }
       setTimeout(()=>goAfterWasabi(),400);
     }
 
@@ -1408,8 +1859,13 @@ canvas#game.grabbing{cursor:grabbing}
       if(!state.toppingPlaced){
         const cx=W/2, cy=H*0.45;
         const dist=Math.hypot(p.x-cx,p.y-(cy-5));
-        if(dist<70){ state.toppingPlaced=true; state.toppingAligned=clamp(0.5+(p.x-cx)/80,0,1); floatFeedback('放上去了','good'); renderControls(); }
-        else floatFeedback('再靠近一点','ok');
+        if(dist<110){
+          state.toppingPlaced=true;
+          state.toppingAligned=clamp(0.5+(p.x-cx)/120,0,1);
+          if(Math.abs(p.x-cx)<40) state.toppingAligned=0.5;
+          floatFeedback('放上去了','good'); sfxPop(); spawnSparkles(cx,cy-8,10,shade(state.topping.color,30)); renderControls();
+        }
+        else floatFeedback('再靠近一点就好','ok');
       } else if(state.draped){
         state.step='plate'; updateHUD(); updateHint(); renderControls(); fx.fade=0.35; needAnim();
       }
@@ -1417,9 +1873,9 @@ canvas#game.grabbing{cursor:grabbing}
 
     if(state.step==='topping'&&state.topping.gunkan&&state._scooping){
       state._scooping=false;
-      if(state.scoopAmount>0.95){ state.spilled=true; floatFeedback('洒出来了！','bad'); }
-      else if(state.scoopAmount<0.2) floatFeedback('太少了','ok');
-      else floatFeedback('装满了','good');
+      if(state.scoopAmount>1.05){ state.spilled=true; floatFeedback('有点满出来啦，再试一次就更棒','ok'); }
+      else if(state.scoopAmount<0.15) floatFeedback('再舀一点点就更棒','ok');
+      else { floatFeedback('太棒了，装满了','good'); sfxChime(); celebMascot(); spawnBurst(W/2,H*0.4,12); }
       state.toppingPlaced=true;
       setTimeout(()=>{ state.step='plate'; updateHUD(); updateHint(); renderControls(); fx.fade=0.35; needAnim(); },500);
     }
@@ -1435,18 +1891,32 @@ canvas#game.grabbing{cursor:grabbing}
   canvas.addEventListener('touchend', onUp, {passive:false});
   canvas.addEventListener('touchcancel', onUp, {passive:false});
 
-  $('#btn-start').addEventListener('click',()=>{ state.pieces=[]; state.pieceIndex=0; renderToppingGrid(); showScreen('pick'); });
-  $('#btn-howto').addEventListener('click',()=>{ toast('选食材 → 切鱼 → 湿手抓饭 → 捏饭 → 芥末 → 放食材 → 摆盘。捏满3贯评分！每步下方有小知识～'); });
-  $('#btn-again').addEventListener('click',()=>{ state.pieces=[]; state.pieceIndex=0; renderToppingGrid(); showScreen('pick'); });
+  function newPlate(){
+    state.pieces=[]; state.pieceIndex=0; sessionStickers=[];
+    renderToppingGrid(); showScreen('pick');
+  }
+
+  $('#btn-start').addEventListener('click',()=>{ unlockAudio(); sfxPop(); newPlate(); });
+  $('#btn-howto').addEventListener('click',()=>{ toast('选食材 → 切鱼 → 湿手抓饭 → 捏饭 → 芥末 → 放食材 → 摆盘。摆盘时可换盘子、加寿司姜。捏满3贯评分！'); });
+  $('#btn-again').addEventListener('click',()=>{ sfxPop(); newPlate(); });
   $('#btn-home').addEventListener('click',()=>{ updateCollectedHint(); showScreen('start'); });
   $('#btn-finish-early').addEventListener('click',()=>{
     if(state.pieces.length===0){ toast('至少完成 1 贯再收工哦'); return; }
     showResult();
   });
+  $('#btn-mute').addEventListener('click', toggleMute);
+  $('#btn-mute-start').addEventListener('click', toggleMute);
+  ['pointerdown','touchstart','click'].forEach(ev=>{
+    document.addEventListener(ev, unlockAudio, {passive:true});
+  });
   window.addEventListener('resize',()=>{ if(state.screen==='play') resize(); });
 
+  const footerEl=$('#game-footer');
+  if(footerEl) footerEl.textContent=FOOTER_TEXT;
+  updateMuteButtons();
   updateCollectedHint(); renderToppingGrid();
 })();
+
 </script>
 </body>
 </html>
